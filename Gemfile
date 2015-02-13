@@ -29,7 +29,6 @@ gem 'rails_12factor', group: :production
 # used to interact with Spotify Web-API
 gem 'rspotifay'
 gem 'grooveshark'
-gem 'rails_12factor', group: :production
 gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
