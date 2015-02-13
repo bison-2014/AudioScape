@@ -1,0 +1,2 @@
+class Song < ActiveR
+end
