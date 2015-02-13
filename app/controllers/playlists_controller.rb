@@ -5,7 +5,7 @@ class PlaylistsController < ApplicationController
   end
 
   def new
-
+    @playlist = Playlist.new
   end
 
   def show
