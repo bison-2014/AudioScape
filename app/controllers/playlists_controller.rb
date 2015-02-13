@@ -9,10 +9,15 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @playlist = Playlist.find(params[:id])
+
 
   end
 
   def create
+    @playlist = Playlist.create(title: params[:playlist][:title], user_id: current_user.id)
+
+    redirect_to @playlist
 
   end
 
