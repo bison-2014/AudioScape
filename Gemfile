@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -24,14 +24,22 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
+gem 'rails_12factor', group: :production
+
 # used to interact with Spotify Web-API
-gem 'rspotify'
+gem 'rspotifay'
 gem 'grooveshark'
 gem 'rails_12factor', group: :production
 gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-spotify'
+
+gem 'youtube_it'
+
+gem 'rspotify'
+
+gem 'grooveshark'
 
 
 # Use ActiveModel has_secure_password
