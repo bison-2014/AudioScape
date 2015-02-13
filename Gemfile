@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 
 # used to interact with Spotify Web-API
-gem 'rspotifay'
+
 gem 'grooveshark'
 gem 'therubyracer'
 gem 'devise'
@@ -38,7 +38,6 @@ gem 'youtube_it'
 
 gem 'rspotify'
 
-gem 'grooveshark'
 
 
 # Use ActiveModel has_secure_password
