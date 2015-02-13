@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :playlists do
     resources :songs
   end
+
+  get "/users/:id", to: 'visitors#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

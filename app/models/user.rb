@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:spotify]
+  has_many :playlists
+  has_many :songs, through: :playlists
 
   # extract the information that is available after the authentication.
 	def self.from_omniauth(auth)
