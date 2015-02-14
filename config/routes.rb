@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   root to: 'visitors#index'
 
+  get '/playlists/find', to: 'playlists#find'
 
   resources :playlists do
     resources :songs
-
   end
+
+
 
   devise_scope :user do
     get "/users/:id", to: 'users/registrations#show'

@@ -29,15 +29,14 @@ class SongsController < ApplicationController
   end
 
   def search
-    # @songs = []
 
     client = Grooveshark::Client.new({session: session[:groove_session]})
     @songs = client.search_songs(params[:songs][:title])
-    @artist_search_results = @songs.select { |song| song.artist.downcase == params[:songs][:artist].downcase}
-
-      # tracks.each do |track|
-      #   @songs << track if track.artist.downcase == params[:songs][:artist] || track if track.artist.downcase == 'various artists'
-      # end
+    unless params[:songs][:artist] == ''
+      @artist_search_results = @songs.select { |song| song.artist.downcase == params[:songs][:artist].downcase}
+    else
+      @artist_search_results = @songs
+    end
 
   end
 
