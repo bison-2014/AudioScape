@@ -9,7 +9,8 @@ class SongsController < ApplicationController
   end
 
   def show
-    @spot_song = Song.find(params[:id])
+    @groove_song = Song.find(params[:id])
+    @groove_url = client.get_song_url(@groove_song)
   end
 
   def create

@@ -2,8 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
-
-
   def show
     @user = User.find(params[:id])
     @playlists = @user.playlists.all
@@ -44,7 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # protected
-
   def update_resource(resource, params)
     if resource.provider.nil?
       super
