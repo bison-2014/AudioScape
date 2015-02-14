@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	 <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-	 <%= render 'layouts/navigation' %>
-
-<%= yield %>
-
+		<%= link_to 'Home', root_path, class: 'navbar-brand' %>
+		<%= render 'layouts/navigation' %>
+		<div class="container">
+			<%= yield %>
+		</div>
 </body>
 </html>

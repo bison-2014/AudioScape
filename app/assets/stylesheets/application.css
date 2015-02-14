@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'reset';
+@import 'variable';
+
+.new_user {
+	text-align: center;
+
+}
