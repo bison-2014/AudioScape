@@ -1,7 +1,9 @@
 <% @songs.each do |song| %>
 
 <%= song.name %>
-<img src="<%= song.album.images.first['url']%>" />
-<%= button_to 'Add', {action: 'create', song_id: song.id} %>
+<% unless song.artwork == '' %>
+<img src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
+<%end%>
+<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist} %>
 
 <%end%>
