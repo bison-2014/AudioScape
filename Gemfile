@@ -37,7 +37,7 @@ gem 'omniauth-spotify'
 gem 'youtube_it'
 
 gem 'rspotify'
-
+gem 'kaminari'
 
 
 # Use ActiveModel has_secure_password
