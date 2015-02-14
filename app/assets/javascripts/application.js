@@ -17,10 +17,14 @@
 $(document).ready(function() {
 
   var x = document.getElementById("demo");
-
   var minUpdateUserDistance = 0.01 //km
   var userId = $("div[style='display:none']").attr('id')
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
+  var geo_options = {
+  enableHighAccuracy: true,
+  maximumAge        : 30000,
+  timeout           : 27000
+  };
 
   var geo_options = {
   enableHighAccuracy: true,
