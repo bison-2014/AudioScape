@@ -1,6 +1,7 @@
-<% @songs.each do |song| %>
+<% @artist_search_results.each do |song| %>
 
 <%= song.name %>
+<%= song.artist %>
 <% unless song.artwork == '' %>
 <img src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
 <%end%>

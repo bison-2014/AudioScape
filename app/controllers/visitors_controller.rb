@@ -4,7 +4,11 @@ class VisitorsController < ApplicationController
   def index
     client = Grooveshark::Client.new
     session[:groove_session] = client.session
+    @user = current_user
+    @playlists = @user.playlists.last(5)
   end
+
+
 
 end
 
