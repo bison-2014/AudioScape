@@ -17,6 +17,7 @@
 $(document).ready(function() {
 
   var x = document.getElementById("demo");
+
   var minUpdateUserDistance = 0.01 //km
   var userId = $("div[style='display:none']").attr('id')
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
@@ -40,6 +41,7 @@ $(document).ready(function() {
 //       x.innerHTML = "Latitude: " + position.coords.latitude +
 //       "<br>Longitude: " + position.coords.longitude;
 // }
+
 
 
   function checkGeoFire(position) {
