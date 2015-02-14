@@ -19,6 +19,10 @@ $(document).ready(function() {
   var x = document.getElementById("demo");
   var minUpdateUserDistance = 0.1 //km
   var userId = $("div[style='display:none']").attr('id')
+  var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
+
+  // Create a GeoFire index
+  var geoFire = new GeoFire(firebaseRef);
   console.log(userId)
   function getLocation() {
       if (navigator.geolocation) {
@@ -31,20 +35,18 @@ $(document).ready(function() {
 //       x.innerHTML = "Latitude: " + position.coords.latitude +
 //       "<br>Longitude: " + position.coords.longitude;
 // }
-  var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
 
-  // Create a GeoFire index
-  var geoFire = new GeoFire(firebaseRef);
 
   function checkGeoFire(position) {
+    // geoFire.set(userId, [position.coords.latitude, position.coords.longitude])
     geoFire.get(userId).then(function(location) {
       if (location === null) {
-        geoFire.set(userId, position);
+        geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
         console.log('No key in database so we set the initial position')
       }
       else {
-        if (GeoFire.distance(position, location) > minUpdateUserDistance ) {
-          geoFire.set(userId, position)
+        if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
+          geoFire.set(userId, [position.coords.latitude, position.coords.longitude])
           console.log('checked the key and we moved enough to update database')
         }
         }
