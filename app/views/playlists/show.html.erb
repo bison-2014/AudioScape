@@ -2,8 +2,11 @@
 
 <a href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
 <% @playlist.songs.each do |song| %>
+
 <a href="/playlists/<%= @playlist.id %>/songs/<%= song.id %>">
 <%= song.title %>
 <%= song.artist %></a>
+
+
 <% end %>
 
