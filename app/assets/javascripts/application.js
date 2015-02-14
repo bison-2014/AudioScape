@@ -21,6 +21,7 @@ $(document).ready(function() {
   var minUpdateUserDistance = 0.01 //km
   var userId = $("div[style='display:none']").attr('id')
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
+
   var geo_options = {
   enableHighAccuracy: true,
   maximumAge        : 30000,
@@ -41,7 +42,6 @@ $(document).ready(function() {
 //       x.innerHTML = "Latitude: " + position.coords.latitude +
 //       "<br>Longitude: " + position.coords.longitude;
 // }
-
 
 
   function checkGeoFire(position) {
