@@ -10,13 +10,16 @@ Rails.application.routes.draw do
 
   resources :playlists do
     resources :songs
+
   end
 
   devise_scope :user do
     get "/users/:id", to: 'users/registrations#show'
   end
 
-  root to: 'visitors#index'
+
+  post '/playlists/:playlist_id/songs/search', to: 'songs#search'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
