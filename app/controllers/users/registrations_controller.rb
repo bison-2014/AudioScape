@@ -2,6 +2,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
+  def show
+    @user = User.find(params[:id])
+    @playlists = @user.playlists.all
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -45,11 +50,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.update_without_password(params)
     end
   end
-   
+
   def sign_up_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
- 
+
   def account_update_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password)
   end
