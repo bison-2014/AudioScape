@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-u = User.new(email: "sstrausman@gmail.com", password: "12345678")
+u = User.new(username: "shea", email: "sstrausman@gmail.com", password: "12345678")
 u.save
   n = 1
   x = "this is playlist #{n}"
