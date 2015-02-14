@@ -9,14 +9,13 @@ class SongsController < ApplicationController
   end
 
   def show
+    client = Grooveshark::Client.new({session: session[:groove_session]})
     @groove_song = Song.find(params[:id])
-    @groove_url = client.get_song_url(@groove_song)
+    @groove_url = client.get_song_url_by_id(@groove_song.link)
   end
 
   def create
-    client = Grooveshark::Client.new({session: session[:groove_session]})
-    groove_song = client.get_song_url_by_id(params[:song_id])
-    song = Song.create(title: params[:song_name], artist: params[:song_artist], link: groove_song, playlist_id: params[:playlist_id])
+    song = Song.create(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id])
     redirect_to "/playlists/#{params[:playlist_id]}/songs/new"
 
   end
