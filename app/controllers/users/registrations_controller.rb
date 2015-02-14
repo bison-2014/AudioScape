@@ -44,7 +44,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # protected
-
   def update_resource(resource, params)
     if resource.provider.nil?
       super
