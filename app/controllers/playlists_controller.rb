@@ -6,6 +6,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+
   end
 
   def show
@@ -26,6 +27,14 @@ class PlaylistsController < ApplicationController
   end
 
   def update
+
+  end
+
+  def find
+    @users = User.all
+    @current_users = @users.select do |u|
+      u if warden.authenticated?(:user => u)
+    end
 
   end
 end

@@ -17,16 +17,21 @@
 $(document).ready(function() {
 
   var x = document.getElementById("demo");
-  var minUpdateUserDistance = 0.1 //km
+  var minUpdateUserDistance = 0.01 //km
   var userId = $("div[style='display:none']").attr('id')
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
+  var geo_options = {
+  enableHighAccuracy: true,
+  maximumAge        : 30000,
+  timeout           : 27000
+  };
 
   // Create a GeoFire index
   var geoFire = new GeoFire(firebaseRef);
   console.log(userId)
   function getLocation() {
       if (navigator.geolocation) {
-          navigator.geolocation.watchPosition(checkGeoFire);
+          navigator.geolocation.watchPosition(checkGeoFire, null, geo_options);
       } else {
           x.innerHTML = "Geolocation is not supported by this browser.";
       }

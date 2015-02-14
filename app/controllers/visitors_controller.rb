@@ -8,5 +8,7 @@ class VisitorsController < ApplicationController
     @playlists = @user.playlists.last(5)
   end
 
+
+
 end
 
