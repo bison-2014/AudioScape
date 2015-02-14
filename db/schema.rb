@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150213194901) do
     t.string  "title"
     t.string  "artist"
     t.string  "link"
+    t.string  "source"
     t.integer "playlist_id"
   end
 
