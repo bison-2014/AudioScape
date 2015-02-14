@@ -4,9 +4,19 @@
   <title>Audioscape</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//cdn.jsdelivr.net/rsvp/3.0.6/rsvp.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
+
+  <!-- GeoFire -->
+  <script src="https://cdn.firebase.com/libs/geofire/3.2.1/geofire.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
+  <div id='user<%=current_user.id%>' style='display:none'></div>
+  <%end%>
+  <div id='demo'></div>
 	 <%= link_to 'Home', root_path, class: 'navbar-brand' %>
 	 <%= render 'layouts/navigation' %>
 

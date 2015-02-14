@@ -39,6 +39,8 @@ gem 'youtube_it'
 gem 'rspotify'
 gem 'kaminari'
 
+gem 'firebase'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
