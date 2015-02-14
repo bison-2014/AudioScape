@@ -9,7 +9,7 @@ class SongsController < ApplicationController
   end
 
   def show
-
+    @spot_song = Song.find(params[:id])
   end
 
   def create
