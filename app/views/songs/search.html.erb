@@ -1,0 +1,7 @@
+<% @songs.each do |song| %>
+
+<%= song.name %>
+<img src="<%= song.album.images.first['url']%>" />
+<%= button_to 'Add', {action: 'create', song_id: song.id} %>
+
+<%end%>

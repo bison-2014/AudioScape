@@ -4,7 +4,9 @@ class CreateSongs < ActiveRecord::Migration
       t.string :title
       t.string :artist
       t.string :link
+      t.string :source
       t.references :playlist
+
     end
   end
 end

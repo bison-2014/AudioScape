@@ -1,0 +1,5 @@
+<%= form_for :songs, url: {action: 'search'} do |f| %>
+Song Title: <%= f.text_field :title %>
+Artist: <%= f.text_field :artist %>
+<%= f.submit %>
+<% end %>
