@@ -1,9 +1,12 @@
 <h1><%= @playlist.title %></h1>
 
 <a href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
-<% @playlist.songs.each do |song| %>
-<a href="/playlists/<%= @playlist.id %>/songs/<%= song.id %>">
-<%= song.title %>
-<%= song.artist %></a>
-<% end %>
+<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
 
+
+    </audio>
+<ul id="playlist">
+<% @playlist.songs.each do |song| %>
+<%= render partial: 'songs/mini_groove_song_card', locals: {groove_song: song, url: @client.get_song_url_by_id(song.link)}%>
+<% end %>
+</ul>
