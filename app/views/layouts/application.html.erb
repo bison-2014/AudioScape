@@ -16,12 +16,13 @@
   <% if current_user %>
   <div id='user<%=current_user.id%>' style='display:none'></div>
   <%end%>
-  <div id='demo'></div>
-	 <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-	 <%= render 'layouts/navigation' %>
-   <%= @s %>
 
-<%= yield %>
-
+ <header>
+    <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+    <%= render 'layouts/navigation' %>
+  </header>
+    <div class="container">
+      <%= yield %>
+    </div>
 </body>
 </html>
