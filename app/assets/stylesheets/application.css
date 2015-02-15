@@ -102,6 +102,13 @@
     padding-bottom: 50px;
   }
 
+  .edit_user {
+    background-color: rgb(236,236,255);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
 }
 
 #playlist,audio{background:#666;width:400px;padding:20px;}
