@@ -28,7 +28,6 @@ $(document).ready(function() {
 
   var currentdate = new Date();
 
-  console.log(currentdate)
 
 
 
@@ -42,29 +41,25 @@ $(document).ready(function() {
           x.innerHTML = "Geolocation is not supported by this browser.";
       }
   }
-//   function showPosition(position) {
-//       x.innerHTML = "Latitude: " + position.coords.latitude +
-//       "<br>Longitude: " + position.coords.longitude;
-// }
+
 
 
   function checkGeoFire(position) {
-    geoFire.set(userId, [position.coords.latitude, position.coords.longitude])
     firebaseRef.child(userId).update({'datetime': currentdate})
-    // geoFire.get(userId).then(function(location) {
-    //   if (location === null) {
-    //     geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate});
-    //     console.log('No key in database so we set the initial position')
-    //   }
-    //   else {
-    //     if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
-    //       geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate})
-    //       console.log('checked the key and we moved enough to update database')
-    //     }
-    //     }
-    //   }, function(error) {
-    //     console.log("Error: " + error);
-    //   });
+    geoFire.get(userId).then(function(location) {
+      if (location === null) {
+        geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate});
+        console.log('No key in database so we set the initial position')
+      }
+      else {
+        if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
+          geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate})
+          console.log('checked the key and we moved enough to update database')
+        }
+        }
+      }, function(error) {
+        console.log("Error: " + error);
+      });
 
   }
 

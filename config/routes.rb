@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   root to: 'visitors#index'
+  get '/playlists/:playlist_id/songs/search', to: 'songs#search'
 
   get '/playlists/find', to: 'playlists#find'
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   end
 
 
-  post '/playlists/:playlist_id/songs/search', to: 'songs#search'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
