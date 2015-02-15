@@ -14,8 +14,8 @@
  *= require_self
  */
 
-@import 'reset';
-@import 'variable';
+/*@import '_reset';
+@import 'variable';*/
 
 @media screen and (max-width: 1020px) {
 
