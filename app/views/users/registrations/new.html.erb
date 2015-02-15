@@ -1,6 +1,7 @@
-<div class="sign_up">
+<div class="sign_up_show">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
+    <div class="sign_up">
 
     <div class="field">
       <%= f.text_field :username, autofocus: true, placeholder: "Username", :class => "input_field"   %>
@@ -17,6 +18,7 @@
     <div class="field">
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", :class => "input_field" %>
     </div>
+  </div>
 
     <div class="actions">
       <%= f.submit "Sign up", :class => "submit_button" %>
