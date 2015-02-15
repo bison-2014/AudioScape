@@ -1,11 +1,14 @@
-<h3>Welcome</h3>
-<div class="user_playlists">
-
-<h3><%= @user.username %>'s recent playlists</br></h3>
-<% @playlists.each do |playlist| %>
-<%= link_to playlist.title, playlist_path(playlist) %></br>
-<% end %>
-<div class="nearby_playlists">
-  <h3>Nearby playlists</h3>
+<div class="something">
+  <h3>Welcome</h3>
+  <div class="user_playlists">
+    <h2><%= @user.username.capitalize %>'s recent playlists</h2>
+    <% @playlists.each do |playlist| %>
+      <img src="<%= playlist.art_url %>" />
+      <%= link_to playlist.title, playlist_path(playlist) %></br>
+    <% end %>
+  </div>
+  <div class="links">
+    <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'btn' %>
+    <%= link_to "Create A New Playlist", new_playlist_path, :class => 'btn'  %>
+  </div>
 </div>
-<%= link_to "Create A New Playlist", new_playlist_path %>
