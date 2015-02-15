@@ -1,5 +1,4 @@
-<%= form_for :songs, url: {action: 'search'} do |f| %>
-Song Title: <%= f.text_field :title %>
-Artist: <%= f.text_field :artist %>
-<%= f.submit %>
+<br><%= form_for :songs, url: {action: 'search'}, html: {method: 'get'} do |f| %>
+<%= f.text_field :title %><br><br>
+<%= f.submit "Search" %>
 <% end %>
