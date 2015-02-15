@@ -32,7 +32,6 @@ $(document).ready(function() {
 
 
 
-
   // Create a GeoFire index
   var geoFire = new GeoFire(firebaseRef);
   console.log(userId)
