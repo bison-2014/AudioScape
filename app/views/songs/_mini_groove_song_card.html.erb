@@ -1,6 +1,12 @@
-<span><a href=<%= url %> >
-	<div class="songcard">
-		<div class="songtitle"><%= title %> - <%= artist %></div>
+<div class="songcard">
+	<div class="coverart">
+		<% unless coverart == '' %>
+			<img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
+		<%end%>
+	<div class="songinfo">
+		<%= title %>
+		<br />
+		<%= artist %>
 	</div>
-</a></span>
-
+			<span><a href=<%= url %> ></a></span></div>
+</div>
