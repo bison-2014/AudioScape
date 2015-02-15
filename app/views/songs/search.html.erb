@@ -5,6 +5,6 @@
 <% unless song.artwork == '' %>
 <img src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
 <%end%>
-<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist} %>
+<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork} %>
 
 <%end%>
