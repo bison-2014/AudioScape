@@ -43,7 +43,6 @@ $(document).ready(function() {
   }
 
 
-
   function checkGeoFire(position) {
     firebaseRef.child(userId).update({'datetime': currentdate})
     geoFire.get(userId).then(function(location) {
@@ -67,14 +66,6 @@ $(document).ready(function() {
   // geoFire.
 
 getLocation()
-
-//   geoFire.set("some_key", [37.79, -122.41]).then(function() {
-//   console.log("Provided key has been added to GeoFire");
-// }, function(error) {
-//   console.log("Error: " + error);
-// });
-  // var loc = 0;
-
 
   var audio;
   var playlist;
