@@ -1,3 +1,9 @@
-<% @current_users_around.each do |u| %>
-<%= u.email %>
+<% @current_users_around.each do |u| %></br></br></br>
+<%= u.username %></br>
+<% @playlist = u.playlists.last %>
+  <% if @playlist %>
+    <%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %>
+  <% else %>
+    This user has no recent playlists.
+  <% end %>
 <%end%>
