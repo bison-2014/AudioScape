@@ -7,9 +7,9 @@
 <% @artist_search_results.each do |song| %>
 <div class='song-cards'>
 <% unless song.artwork == '' %>
-<img src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
+<img class="searchart" src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
 <% else %>
-<img src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 <%end%><br>
 <p>&nbsp&nbsp<%= song.name %> -
 <%= song.artist %></p><br><br>
