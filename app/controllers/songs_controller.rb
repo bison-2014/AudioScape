@@ -15,7 +15,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    song = Song.create(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id])
+    song = Song.create(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id], coverart: params[:coverart])
     redirect_to "/playlists/#{params[:playlist_id]}/"
 
   end

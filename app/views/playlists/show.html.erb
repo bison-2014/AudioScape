@@ -6,7 +6,7 @@
 
     </audio>
 <ul id="playlist">
-<% @playlist.songs.each do |song| %>
-<%= render partial: 'songs/mini_groove_song_card', locals: {groove_song: song, url: @client.get_song_url_by_id(song.link)}%>
-<% end %>
+	<% @playlist.songs.each do |song| %>
+		<%= render partial: 'songs/mini_groove_song_card', locals: {groove_song: song, url: @client.get_song_url_by_id(song.link), coverart: song.coverart}%>
+	<% end %>
 </ul>
