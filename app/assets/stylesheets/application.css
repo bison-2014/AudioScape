@@ -76,10 +76,6 @@
     margin-top: 10px;
     border-radius: 11px;
     font-size: 15px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     padding: 5px 10px 5px 10px;
   }
 
@@ -89,6 +85,10 @@
   .submit_button {
     border-radius: 11px;
     font-size: 15px;
+    width: 20%;
+    background-color: rgb(79,25,159);
+    color: white;
+    padding: 5px 10px 5px 10px;
   }
 
   .actions {
