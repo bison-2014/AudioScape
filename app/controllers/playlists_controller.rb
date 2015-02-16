@@ -12,14 +12,14 @@ class PlaylistsController < ApplicationController
   def show
     @playlist = Playlist.find(params[:id])
     @client = Grooveshark::Client.new({session: session[:groove_session]})
-    # @groove_song = Song.find(params[:id])
-    # @groove_url = @client.get_song_url_by_id(@groove_song.link)
-
-
+    @picture = @playlist.art_url
+    unless @picture
+      @picture = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
+    end
   end
 
   def create
-    @playlist = Playlist.create(title: params[:playlist][:title], user_id: current_user.id)
+    @playlist = Playlist.create(title: params[:playlist][:title], user_id: current_user.id, art_url: params[:playlist][:art_url])
 
     redirect_to @playlist
 
