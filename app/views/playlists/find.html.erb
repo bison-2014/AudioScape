@@ -1,10 +1,13 @@
-<%= @current_users_around %>
-<% @current_users_around.each do |u| %></br></br></br>
-<%= u.username %></br>
-<% @playlist = u.playlists.last %>
-  <% if @playlist %>
-    <%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %>
-  <% else %>
-    This user has no recent playlists.
-  <% end %>
-<%end%>
+
+<div class="playlist_find">
+  <% @current_users_around.each do |u| %></br>
+    <% @playlist = u.playlists.last %>
+      <% if @playlist %>
+        <div class="art_pic">
+          <img class="art_find" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+          <p><%= u.username %></br></p>
+          <p><%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %></p>
+        </div>
+      <% end %>
+  <%end%>
+</div>
