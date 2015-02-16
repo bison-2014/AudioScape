@@ -1,10 +1,9 @@
-<br>
-<br>
+<div class="search_songs">
 	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get'} do |f| %>
-		<%= f.text_field :title %><br><br>
+		<%= f.text_field :title %>
 		<%= f.submit "Search" %>
 	<% end %>
-<br><br><br><br><br>
+</div>
 
 <% @artist_search_results.each do |song| %>
 	<div class='song-cards'>
