@@ -40,6 +40,7 @@ gem 'rspotify'
 gem 'kaminari'
 
 gem 'firebase'
+gem 'foundation-rails'
 
 
 # Use ActiveModel has_secure_password
