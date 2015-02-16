@@ -44,22 +44,23 @@ $(document).ready(function() {
 
 
   function checkGeoFire(position) {
-    firebaseRef.child(userId).update({'datetime': currentdate})
+    // firebaseRef.push(userId)
+
     geoFire.get(userId).then(function(location) {
       if (location === null) {
-        geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate});
+        geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
         console.log('No key in database so we set the initial position')
       }
       else {
         if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
-          geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate})
+          geoFire.set(userId, [position.coords.latitude, position.coords.longitude])
           console.log('checked the key and we moved enough to update database')
         }
         }
       }, function(error) {
         console.log("Error: " + error);
       });
-
+    firebaseRef.child(userId).update({'datetime': currentdate})
   }
 
 

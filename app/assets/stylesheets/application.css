@@ -17,7 +17,7 @@
 /*@import '_reset';
 @import 'variable';*/
 
-@media screen and (max-width: 1020px) {
+/*@media screen and (max-width: 1020px) {*/
 
   header {
     background-color: rgb(120,121,189);
@@ -109,4 +109,4 @@
     text-align: center;
   }
 
-}
+/*}*/
