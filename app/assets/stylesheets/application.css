@@ -88,19 +88,14 @@ header ul li a {
 
   .input_field {
     margin: 0 auto;
-    border-radius: 11px;/*
-    padding: 5px 10px 5px 10px;*/
+    border-radius: 11px;
     font-size: 5em;
     width: 90%;
   }
 
-  .submit_button {
-    width: 20%;
-    height: 20em;
-  }
-
   .actions {
     text-align: center;
+    height: 20em;
     margin-top: 20px;
   }
 
