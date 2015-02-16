@@ -8,7 +8,6 @@
     <div class="field">
       <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class => "input_field" %>
     </div>
-  </div>
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">
@@ -22,6 +21,6 @@
     </div>
 
   <% end %>
+  </div>
 
-  <%= render "devise/shared/links" %>
 </div>
