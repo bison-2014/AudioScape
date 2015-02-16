@@ -42,16 +42,17 @@ class PlaylistsController < ApplicationController
     @users.each do |u|
       body = firebase.get("user#{u.id.to_s}").body
       current_user_body = firebase.get("user#{current_user.id.to_s}").body
-      this_user_point = body['l']
-      current_user_point = current_user_body['l']
+      if body 
+        this_user_point = body['l']
+        current_user_point = current_user_body['l']
 
-      if 1.hour.ago < body['datetime'] || 1.hour.ago < u.updated_at
-        if distance(this_user_point[0], this_user_point[1], current_user_point[0], current_user_point[1]) < 16
-          @current_users_around << u
+        if 1.hour.ago < body['datetime'] || 1.hour.ago < u.updated_at
+          if distance(this_user_point[0], this_user_point[1], current_user_point[0], current_user_point[1]) < 16
+            @current_users_around << u unless current_user
+          end
         end
       end
     end
-
   end
 
 
