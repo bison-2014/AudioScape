@@ -33,7 +33,8 @@ $(document).ready(function() {
 
   // Create a GeoFire index
   var geoFire = new GeoFire(firebaseRef);
-  console.log(userId)
+
+
   function getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.watchPosition(checkGeoFire, null, geo_options);
@@ -49,22 +50,23 @@ $(document).ready(function() {
     geoFire.get(userId).then(function(location) {
       if (location === null) {
         geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
+        firebaseRef.child(userId).update({'datetime': currentdate});
         console.log('No key in database so we set the initial position')
       }
       else {
         if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
-          geoFire.set(userId, [position.coords.latitude, position.coords.longitude])
+          geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
           console.log('checked the key and we moved enough to update database')
         }
         }
       }, function(error) {
         console.log("Error: " + error);
-      });
-    firebaseRef.child(userId).update({'datetime': currentdate})
+      }
+    );
+    firebaseRef.child(userId).update({'datetime': currentdate});
   }
 
 
-  // geoFire.
 
 getLocation()
 
