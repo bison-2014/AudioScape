@@ -14,81 +14,89 @@
  *= require_self
  */
 
-/*@import '_reset';
-@import 'variable';*/
 
-/*@media screen and (max-width: 1020px) {*/
 
-  header {
+body {
+  width: 100%;
+}
+
+header {
+    /*width: 100%;*/
+    border: none;
     background-color: rgb(120,121,189);
-    padding:  10px 20px 30px 10px;
+    padding:  7em;
   }
 
-  header li {
-    display: inline;
+header ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 
-  }
+}
 
-  .navbar-brand {
+header ul li {
+    list-style: none;
     float: left;
-  }
+    text-align: center;
+    width: 16.6667%; /* fallback for non-calc() browsers */
+    width: calc(100% / 3);
+}
+
+header ul li:first-child {
+    border-left: none;
+}
+
+header ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 0;
+}
 
   a {
     text-decoration: none;
-    font-size: 20px;
-    color: rgb(0,2,101);
+    font-size: 4em;
+    color: white;
   }
 
   a:hover {
     color: rgb(209,209,209);
   }
 
-  li a {
-    float: right;
-    padding-right: 10px;
-  }
   .new_user {
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
     text-align: center;
   }
 
+  .show_login {
+    width: 100%;
+  }
+
   .login {
-    background-color: rgb(236,236,255);
-    width: 100%;
     height: 100%;
-    padding-bottom: 50px;
-    padding-top: 50px;
-  }
-
-  .sign_up {
-    background-color: rgb(236,236,255);
     width: 100%;
-    height: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-  }
+    margin: 0 auto;
+    }
 
   .field {
     margin-top: 30px;
+    width: 100%;
+
   }
 
   .input_field {
-    margin-top: 10px;
-    border-radius: 11px;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-  }
-
-  .input_field:focus {
+    margin: 0 auto;
+    border-radius: 11px;/*
+    padding: 5px 10px 5px 10px;*/
+    font-size: 5em;
+    width: 90%;
   }
 
   .submit_button {
-    border-radius: 11px;
-    font-size: 15px;
     width: 20%;
-    background-color: rgb(79,25,159);
-    color: white;
-    padding: 5px 10px 5px 10px;
+    height: 20em;
   }
 
   .actions {
@@ -109,4 +117,12 @@
     text-align: center;
   }
 
-/*}*/
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
+
+}
+
