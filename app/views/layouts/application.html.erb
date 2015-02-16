@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Audioscape</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="//cdn.jsdelivr.net/rsvp/3.0.6/rsvp.min.js"></script>
   <!-- Firebase -->
@@ -14,14 +17,15 @@
 </head>
 <body>
   <% if current_user %>
-  <div id='user<%=current_user.id%>' style='display:none'></div>
+    <div id='user<%=current_user.id%>' style='display:none'></div>
   <%end%>
 
- <header>
+  <header>
     <%= render 'layouts/navigation' %>
   </header>
-    <div class="container">
-      <%= yield %>
-    </div>
+
+  <div class="container row">
+    <%= yield %>
+  </div>
 </body>
 </html>

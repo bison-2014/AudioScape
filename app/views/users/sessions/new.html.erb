@@ -1,4 +1,4 @@
-<div class="show_login">
+
   <div class="login">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -17,10 +17,8 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Login", :class => "submit_button" %>
+      <%= f.submit "Login", :class => "button" %>
     </div>
 
   <% end %>
-  </div>
-
 </div>
