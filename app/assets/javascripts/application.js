@@ -44,7 +44,7 @@ $(document).ready(function() {
 
 
   function checkGeoFire(position) {
-    firebaseRef.child(userId).update({'datetime': currentdate})
+    firebaseRef.child(userId).set({'datetime': currentdate})
     geoFire.get(userId).then(function(location) {
       if (location === null) {
         geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
