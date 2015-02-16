@@ -1,9 +1,9 @@
 <div class="something">
-  <h3>Welcome</h3>
+  <p>Welcome, <%= current_user.username.capitalize %></p>
   <div class="user_playlists">
-    <h2><%= @user.username.capitalize %>'s recent playlists</h2>
+    <p>Here are your recent playlists</p>
     <% @playlists.each do |playlist| %>
-      <img src="<%= playlist.art_url %>" />
+      <img src="<%= playlist.art_url %>"/>
       <%= link_to playlist.title, playlist_path(playlist) %></br>
     <% end %>
   </div>
