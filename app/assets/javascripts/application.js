@@ -47,12 +47,12 @@ $(document).ready(function() {
     firebaseRef.child(userId).update({'datetime': currentdate})
     geoFire.get(userId).then(function(location) {
       if (location === null) {
-        geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate});
+        geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
         console.log('No key in database so we set the initial position')
       }
       else {
         if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
-          geoFire.set(userId, {location:[position.coords.latitude, position.coords.longitude], dateTime: currentdate})
+          geoFire.set(userId, [position.coords.latitude, position.coords.longitude])
           console.log('checked the key and we moved enough to update database')
         }
         }
