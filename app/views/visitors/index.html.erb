@@ -5,6 +5,9 @@
     <% @playlists.each do |playlist| %>
       <img src="<%= playlist.art_url %>"/>
       <%= link_to playlist.title, playlist_path(playlist) %></br>
+      <%= link_to 'Destroy', playlist_path(playlist),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
   <div class="links">
