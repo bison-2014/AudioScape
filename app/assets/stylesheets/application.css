@@ -50,14 +50,10 @@ header ul li a {
     display: block;
     text-decoration: none;
     color: white;
+    font-size: 3em;
     padding: 10px 0;
 }
 
-  a {
-    text-decoration: none;
-    font-size: 4em;
-    color: white;
-  }
 
   a:hover {
     color: rgb(209,209,209);
