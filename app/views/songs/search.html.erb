@@ -6,6 +6,7 @@
 </div>
 
 <% @artist_search_results.each do |song| %>
+
 	<div class='song-cards'>
 		<% unless song.artwork == '' %>
 			<img class="searchart" src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
