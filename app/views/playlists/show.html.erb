@@ -1,8 +1,20 @@
 <div class="now_playing">
+
 	<p class="welcome"><%= @playlist.title %></p>
+
+
+	<img src="<%= @picture %>"/>
+
+
 	<br />
 </div>
 <div class="playlist">
+
+	<% if @playlist.user == current_user %>
+	<a href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+	<% end %>
+
+
 	<ul id="playlist">
 		<% @playlist.songs.each do |song| %>
 			<%= render partial: 'songs/mini_groove_song_card', locals: {track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart}%>
@@ -14,5 +26,5 @@
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
   <a class="button tiny" href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
 </div>
-<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg"></audio>
+
 

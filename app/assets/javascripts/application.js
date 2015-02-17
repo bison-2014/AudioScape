@@ -102,7 +102,7 @@ getLocation()
               current = 0;
               link = playlist.find('a')[0];
           }else{
-              link = playlist.find('a')[current];
+              link = playlist.find('a')[current + 1];
           }
           run($(link),audio[0]);
       });
