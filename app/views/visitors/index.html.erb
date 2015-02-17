@@ -1,17 +1,13 @@
 <div class="something">
-  <p>Welcome, <%= current_user.username.capitalize %></p>
+  <div class="welcome"><p><%= current_user.username.capitalize %>'s recent playlists</p></div>
   <div class="user_playlists">
-    <p>Here are your recent playlists</p>
     <% @playlists.each do |playlist| %>
       <img src="<%= playlist.art_url %>"/>
       <%= link_to playlist.title, playlist_path(playlist) %></br>
-      <%= link_to 'Delete Playlist', playlist_path(playlist),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
   <div class="links">
-    <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'btn' %>
-    <%= link_to "Create A New Playlist", new_playlist_path, :class => 'btn'  %>
+    <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'button small' %>
+    <%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small'  %>
   </div>
 </div>

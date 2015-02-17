@@ -15,4 +15,23 @@
  *= require foundation_and_overrides
 
  */
+@import url(http://fonts.googleapis.com/css?family=Yellowtail);
+.welcome {
+  text-align: center;
+}
 
+.user_playlists {
+  text-align: center;
+  min-height: 12em;
+}
+
+html {
+font-family: 'Yellowtail', cursive;
+}
+
+.searchart {
+  max-height: 90px;
+  max-width: 90px;
+  width: auto;
+  height: auto;
+}
