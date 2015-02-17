@@ -1,7 +1,7 @@
 <div class="search_songs">
 	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get'} do |f| %>
 		<%= f.text_field :title %>
-		<%= f.submit "Search" %>
+		<%= f.submit "Search", :class => 'button' %>
 	<% end %>
 </div>
 
@@ -17,7 +17,7 @@
 		<br>
 		<br>
 
-		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork} %>
+		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button' %>
 	</div>
 <br><br><br><br><br>
 
