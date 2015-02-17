@@ -11,5 +11,18 @@
     <%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small'  %>
   </div>
 
+   <div class="random_playlist">
+    <p>Here is a sampling of songs from playlists around you</p>
+      <% if current_users_around.empty? %>
+        <p>No users currently. Please try again later</p>
+      <% end %>
+
+      <% current_users_around.each do |u| %></br>
+        <% song = u.playlists.sample.songs.sample %>
+        <% current_user.playlists << song %>
+        <li><%= link_to song.url, playlist_song_path(song) %></li>
+        <% end %>
+  </div>
+
 
 </div>
