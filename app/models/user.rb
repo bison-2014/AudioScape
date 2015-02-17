@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:spotify]
+         :omniauthable, :omniauth_providers => [:twitter]
   has_many :playlists
   has_many :songs, through: :playlists
 
