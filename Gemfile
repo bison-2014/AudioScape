@@ -33,6 +33,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-spotify'
+gem 'omniauth-twitter'
 
 gem 'youtube_it'
 
