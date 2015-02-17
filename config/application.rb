@@ -16,7 +16,6 @@ Bundler.require(*Rails.groups)
 
 module Audioscape
   class Application < Rails::Application
-    RSpotify::authenticate("f77bdd1133ad4d5f80bdd6131b213c6a", "0b230788289b48aa84b2e56630b7d438")
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

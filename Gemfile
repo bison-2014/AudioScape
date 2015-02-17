@@ -36,7 +36,6 @@ gem 'omniauth-twitter'
 
 gem 'youtube_it'
 
-gem 'rspotify'
 gem 'kaminari'
 
 gem 'firebase'
