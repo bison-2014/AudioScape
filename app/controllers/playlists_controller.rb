@@ -43,7 +43,7 @@ class PlaylistsController < ApplicationController
     base_uri = 'https://blinding-fire-43.firebaseio.com/'
     firebase = Firebase::Client.new(base_uri)
 
-    @users = User.where({ updated_at: (1.hour.ago)..Time.now })
+    @users = User.all
     @current_users_around = []
     @users.each do |u|
 
