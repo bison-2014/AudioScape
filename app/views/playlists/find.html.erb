@@ -1,17 +1,17 @@
-<h1> Playlists nearby </h1>
+<p class="welcome"> Playlists nearby </p>
 <div class="playlist_find">
 
   <% if @current_users_around.empty? %>
-    <p>No users currently. Please try again later</p>
+    <p class="welcome">No users currently. Please try again later</p>
   <% end %>
 
   <% @current_users_around.each do |u| %></br>
     <% @playlist = u.playlists.last %>
       <% if @playlist %>
+      <%= u.username %></br>
         <div class="art_pic">
-          <img class="art_find" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
-          <p><%= u.username %></br></p>
-          <p><%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %></p>
+          <img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+          <%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %>
         </div>
       <% end %>
   <% end %>

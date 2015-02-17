@@ -2,7 +2,7 @@
   <div class="welcome"><p><%= current_user.username.capitalize %>'s recent playlists</p></div>
   <div class="user_playlists">
     <% @playlists.each do |playlist| %>
-      <img src="<%= playlist.art_url %>"/>
+      <img class="searchart" src="<%= playlist.art_url %>"/>
       <%= link_to playlist.title, playlist_path(playlist) %></br>
     <% end %>
   </div>
