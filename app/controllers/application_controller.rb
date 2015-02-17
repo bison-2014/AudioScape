@@ -7,18 +7,19 @@ class ApplicationController < ActionController::Base
     base_uri = 'https://blinding-fire-43.firebaseio.com/'
     firebase = Firebase::Client.new(base_uri)
 
-    users = User.where({ updated_at: (1.hour.ago)..Time.now })
+    users = User.all
     current_users_around = []
     users.each do |u|
 
       body = firebase.get("user#{u.id.to_s}").body
       current_user_body = firebase.get("user#{current_user.id.to_s}").body
+      user_time = (body['datetime'] || 1.second.ago)
 
       if body
         this_user_point = body['l']
         current_user_point = current_user_body['l']
 
-        if 1.hour.ago < body['datetime'] || 1.hour.ago < u.updated_at
+        if 1.hour.ago < user_time
 
           if distance(current_user_point[0], current_user_point[1], this_user_point[0], this_user_point[1]) < 16
             current_users_around << u unless u == current_user

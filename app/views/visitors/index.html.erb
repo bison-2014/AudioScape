@@ -18,8 +18,10 @@
       <% end %>
 
       <% current_users_around.each do |u| %></br>
-        <% song = u.playlists.sample.songs.sample %>
-        <% current_user.playlists << song %>
+        <% playlist = u.playlists.sample %>
+        <% song = playlist.songs.sample %>
+        <% current_user.playlists.create(song) %>
+
         <li><%= link_to song.url, playlist_song_path(song) %></li>
         <% end %>
   </div>

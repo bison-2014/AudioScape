@@ -42,4 +42,5 @@ class PlaylistsController < ApplicationController
   def find
     @current_users_around = current_users_around
   end
+
 end
