@@ -1,4 +1,10 @@
+<h1> Playlists nearby </h1>
 <div class="playlist_find">
+
+  <% if @current_users_around.empty? %>
+    <p>No users currently. Please try again later</p>
+  <% end %>
+
   <% @current_users_around.each do |u| %></br>
     <% @playlist = u.playlists.last %>
       <% if @playlist %>
@@ -8,5 +14,5 @@
           <p><%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %></p>
         </div>
       <% end %>
-  <%end%>
+  <% end %>
 </div>

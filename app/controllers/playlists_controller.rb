@@ -19,14 +19,20 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = Playlist.create(title: params[:playlist][:title], user_id: current_user.id, art_url: params[:playlist][:art_url])
+    @playlist = Playlist.new(title: params[:playlist][:title], user_id: current_user.id, art_url: params[:playlist][:art_url])
 
-    redirect_to @playlist
-
+    if @playlist.save
+      redirect_to @playlist
+    else
+      render :new
+    end
   end
 
   def destroy
+    playlist = current_user.playlists.find(params[:id])
+    playlist.destroy
 
+    redirect_to '/'
   end
 
   def update

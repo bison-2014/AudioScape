@@ -16,7 +16,7 @@ class SongsController < ApplicationController
 
   def create
     song = Song.new(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id], coverart: params[:coverart])
-    
+
     if song.coverart != ''
       song.coverart = "http://images.gs-cdn.net/static/albums/#{params[:coverart]}"
       song.save
@@ -24,12 +24,16 @@ class SongsController < ApplicationController
       song.coverart = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
       song.save
     end
-    
+
     redirect_to "/playlists/#{params[:playlist_id]}/"
   end
 
   def destroy
+    playlist = Playlist.find(params[:playlist_id])
+    song = playlist.songs.find(params[:id])
+    song.destroy
 
+    redirect_to playlist
   end
 
   def update
