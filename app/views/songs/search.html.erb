@@ -1,7 +1,7 @@
 <div class="search_songs">
 	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get'} do |f| %>
-		<%= f.text_field :title %>
-		<%= f.submit "Search", :class => 'button' %>
+		<%= f.text_field :title, :placeholder => "Find a song" %>
+		<%= f.submit "Search", :class => 'button small' %>
 	<% end %>
 </div>
 
@@ -12,13 +12,7 @@
 		<% else %>
 			<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 		<%end%>
-		<br>
 		<p>&nbsp&nbsp<%= song.name %> - <%= song.artist %></p>
-		<br>
-		<br>
-
-		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button' %>
+		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button tiny' %>
 	</div>
-<br><br><br><br><br>
-
 <%end%>
