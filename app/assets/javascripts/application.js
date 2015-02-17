@@ -88,7 +88,7 @@ getLocation()
       source = $('<source>').attr('type', 'audio/mpeg').attr('src', firstTrackSrc)
       audio.append(source)
       len = tracks.length - 1;
-      audio[0].volume = .10;
+      audio[0].volume = .50;
       audio[0].play();
       playlist.find('a').click(function(e){
           e.preventDefault();
