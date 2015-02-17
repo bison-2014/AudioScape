@@ -30,6 +30,8 @@ class ApplicationController < ActionController::Base
     current_users_around
   end
 
+
+
   helper_method :current_users_around
 
   private

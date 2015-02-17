@@ -15,16 +15,19 @@
     <p>Here is a sampling of songs from playlists around you</p>
       <% if current_users_around.empty? %>
         <p>No users currently. Please try again later</p>
-      <% end %>
+      <% else %>
+        <% current_users_around.each do |u| %></br>
+          <% if u.playlists %>
+            <% playlist = u.playlists.sample %>
+          <% if u.playlists.sample %>
+            <% song = playlist.songs.sample %>
+            <% current_user.playlists.create(song) %>
 
-      <% current_users_around.each do |u| %></br>
-        <% playlist = u.playlists.sample %>
-        <% song = playlist.songs.sample %>
-        <% current_user.playlists.create(song) %>
-
-        <li><%= link_to song.url, playlist_song_path(song) %></li>
+          <li><%= link_to song.url, playlist_song_path(song) %></li>
         <% end %>
+      <% end %>
+    <% end %>
+    <% end %>
   </div>
-
 
 </div>
