@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
 
     # users.each do |u|
 
+    #   body = firebase.get("user#{u.id.to_s}").body
+    #   current_user_body = firebase.get("user#{current_user.id.to_s}").body
+
 
     #   if body && current_user_body
     #     this_user_point = body['l']
