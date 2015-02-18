@@ -6,18 +6,21 @@
       <%= link_to playlist.title, playlist_path(playlist) %></br>
     <% end %>
   </div>
+  <div class="random_playlist" id='playlist'>
+    <p class="welcome">Random Songs Around You</p>
+      <ul>
+        <% if find_random_local_songs.class.name == "Array" %>
+          <% find_random_local_songs.each do |song| %>
+            <%= render partial: 'songs/mini_groove_song_card', locals: {playlist: song.playlist, track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart} %>
+          <% end %>
+        <% else %>
+          <p class="result"><%= find_random_local_songs %><p>
+        <% end %>
+  </div>
   <div class="links">
 
     <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'button small', :id => 'find-playlist' %>
     <%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small', :id => 'new-playlist'  %>
-  </div>
-   <div class="random_playlist" id='playlist'>
-    <p>Here is a sampling of songs from playlists around you</p>
-      <ul>
-      <% find_random_local_songs.each do |song| %>
-      <%= render partial: 'songs/mini_groove_song_card', locals: {playlist: song.playlist, track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart} %>
-      <% end %>
-
   </div>
 </div>
 
