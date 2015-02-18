@@ -13,12 +13,12 @@ class ApplicationController < ActionController::Base
 
       body = firebase.get("user#{u.id.to_s}").body
       current_user_body = firebase.get("user#{current_user.id.to_s}").body
-      user_time = (body['datetime'] || 1.second.ago)
 
-      if body
+
+      if body && current_user_body
         this_user_point = body['l']
         current_user_point = current_user_body['l']
-
+        user_time = (body['datetime'] || 1.second.ago)
         if 1.hour.ago < user_time
 
           if distance(current_user_point[0], current_user_point[1], this_user_point[0], this_user_point[1]) < 16
