@@ -123,6 +123,21 @@ $(document).ready(function() {
       })
   })
 
+  $('body').on('click', '#find-playlist', function(event) {
+    event.preventDefault()
+
+    var myUrl = $(this).attr('href')
+    $.ajax({type: 'get', url: myUrl})
+      .done(function(response) {
+        $('.container').remove()
+        $('header').remove()
+        var $header = $(response).filter('header')
+        var $container = $(response).filter('.container')
+        $('body').append($header)
+        $('body').append($container)
+      })
+  })
+
   var minUpdateUserDistance = 0.01 //km
   var userId = $("div[style='display:none']").attr('id')
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
