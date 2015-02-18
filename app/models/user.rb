@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :taggings
   has_many :locations, through: :taggings
 
+  validates :username, uniqueness: true
+
 
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
