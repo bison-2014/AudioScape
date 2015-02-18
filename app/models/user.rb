@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:twitter]
   has_many :playlists
   has_many :songs, through: :playlists
+  has_many :taggings
+  has_many :locations, through: :taggings
+
 
   has_many :taggings
   has_many :locations, through: :taggings
