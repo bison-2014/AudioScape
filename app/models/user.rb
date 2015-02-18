@@ -7,12 +7,18 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:twitter]
   has_many :playlists
   has_many :songs, through: :playlists
+
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
   has_many :taggings
   has_many :locations, through: :taggings
 
   validates :username, uniqueness: true
+
+  has_many :taggings
+  has_many :locations, through: :taggings
+
+
 
   # extract the information that is available after the authentication.
 	def self.from_omniauth(auth)
