@@ -1,13 +1,14 @@
 <% if user_signed_in? %>
 <ul class="button-group even-3">
-  <li><%= link_to 'Home', root_path, :class=>"button" %></li>
-  <li><%= link_to 'User', edit_user_registration_path, :class=>"button" %></li>
-  <li><%= link_to 'Exit', destroy_user_session_path, :method=>'delete', :class=>"button" %></li>
+  <li><%= link_to 'Home', root_path, :class=>"button", :id => 'home' %></li>
+  <li><%= link_to 'User', edit_user_registration_path, :class=>"button", :id => 'user' %></li>
+  <li><%= link_to 'Exit', destroy_user_session_path, :method=>'delete', :class=>"button", :id => 'signout' %></li>
 </ul>
 <% else %>
 <ul class="button-group even-3">
-  <li><%= link_to 'Home', root_path, :class => 'button' %></li>
-  <li><%= link_to 'Login', new_user_session_path, :class => 'button' %></li>
-  <li><%= link_to 'Join', new_user_registration_path, :class => 'button' %></li>
+  <li><%= link_to 'Home', root_path, :class => 'button', :id => 'home' %></li>
+  <li><%= link_to 'Signin', new_user_session_path, :class => 'button', :id => 'signin' %></li>
+  <li><%= link_to 'Signup', new_user_registration_path, :class => 'button', :id => 'signup' %></li>
+
 </ul>
 <% end %>

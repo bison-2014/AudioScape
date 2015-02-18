@@ -1,7 +1,9 @@
 <div class="search_songs">
-	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get'} do |f| %>
+
+	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get', :id => 'search-songs'} do |f| %>
 		<%= f.text_field :title, :placeholder => "Find a song" %>
 		<%= f.submit "Search", :class => 'button small' %>
+
 	<% end %>
 </div>
 
@@ -13,7 +15,9 @@
 		<% else %>
 			<img class="th searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 		<%end%>
+
 		<p>&nbsp&nbsp<%= truncate(song.name, :length => 15)  %> - <%= truncate(song.artist, :length => 10) %></p>
-		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button tiny' %>
+		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button tiny add-song' %>
+
 	</div>
 <%end%>

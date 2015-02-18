@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+  respond_to :html, :js, :xml, :json
 
   def index
 
@@ -6,6 +7,9 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+
+
+    render 'new', layout: false
 
   end
 
@@ -16,15 +20,20 @@ class PlaylistsController < ApplicationController
     unless @picture
       @picture = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
     end
+
+
+
+
+
   end
 
   def create
     @playlist = Playlist.new(title: params[:playlist][:title], user_id: current_user.id, art_url: params[:playlist][:art_url])
 
     if @playlist.save
-      redirect_to @playlist
+      render 'show', layout: false
     else
-      render :new
+      render :new, layout: false
     end
   end
 

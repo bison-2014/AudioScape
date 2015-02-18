@@ -1,8 +1,21 @@
 <div class="now_playing">
+
 	<p class="welcome"><%= @playlist.title %></p>
+
+
+	<img src="<%= @picture %>"/>
+
+
 	<br />
+
 </div>
+
+
 <div class="playlist">
+
+
+
+
 	<ul id="playlist">
 		<% @playlist.songs.each do |song| %>
 			<%= render partial: 'songs/mini_groove_song_card', locals: {track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart}%>
@@ -12,7 +25,9 @@
   <%= link_to 'Delete Playlist', playlist_path(@playlist),
           method: :delete,
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
-  <a class="button tiny" href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% if @playlist.user == current_user %>
+    <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% end %>
 </div>
-<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg"></audio>
+
 
