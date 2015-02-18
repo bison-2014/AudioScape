@@ -91,28 +91,28 @@ $(document).ready(function() {
   //     })
   // })
 
-  $('body').on('submit', '#new_user', function(event) {
-    // event.preventDefault()
-    $('body').append($('<footer>').append($('<audio>').attr('id', 'audio').attr('preload', 'auto').attr('tabindex', '0').attr('controls', '').attr('type', 'audio/mpeg')))
-    // var myUrl = $(this).attr('action')
-    // $.ajax({type: 'post', url: myUrl, data: $(this).serialize()})
-    //   .done(function(response) {
-    //     $('header').remove()
-    //     $('.container').remove()
-    //     // var $ul = $('<ul>').addClass('button-group even-3')
-    //     // $ul.append($('<li>').append($('<a>').attr('id', 'home').attr('class', 'button').attr('href', '/').text('Home')))
-    //     // $ul.append($('<li>').append($('<a>').attr().attr('id', 'user').attr('class', 'button').attr('href', '/users/edit').text('User')))
-    //     // $ul.append($('<li>').append($('<a>').attr().attr('id', 'signout').attr('class', 'button').attr('href', '/users/sign_out').attr('rel', 'nofollow').attr('data-method', 'delete').text('Exit')))
-    //     // $('body').append($('<header>').append("<%= escape_javascript(render 'layouts/navigation').html_safe %>"))
+  // $('body').on('submit', '#new_user', function(event) {
+  //   // event.preventDefault()
+  //   $('body').append($('<footer>').append($('<audio>').attr('id', 'audio').attr('preload', 'auto').attr('tabindex', '0').attr('controls', '').attr('type', 'audio/mpeg')))
+  //   // var myUrl = $(this).attr('action')
+  //   // $.ajax({type: 'post', url: myUrl, data: $(this).serialize()})
+  //   //   .done(function(response) {
+  //   //     $('header').remove()
+  //   //     $('.container').remove()
+  //   //     // var $ul = $('<ul>').addClass('button-group even-3')
+  //   //     // $ul.append($('<li>').append($('<a>').attr('id', 'home').attr('class', 'button').attr('href', '/').text('Home')))
+  //   //     // $ul.append($('<li>').append($('<a>').attr().attr('id', 'user').attr('class', 'button').attr('href', '/users/edit').text('User')))
+  //   //     // $ul.append($('<li>').append($('<a>').attr().attr('id', 'signout').attr('class', 'button').attr('href', '/users/sign_out').attr('rel', 'nofollow').attr('data-method', 'delete').text('Exit')))
+  //   //     // $('body').append($('<header>').append("<%= escape_javascript(render 'layouts/navigation').html_safe %>"))
 
-    //     // $('body').append($('<header>').append($ul))
-    //     var $header = $(response).filter('header')
-    //     var $container = $(response).filter('.container')
-    //     $('body').append($header)
-    //     $('body').append($container)
+  //   //     // $('body').append($('<header>').append($ul))
+  //   //     var $header = $(response).filter('header')
+  //   //     var $container = $(response).filter('.container')
+  //   //     $('body').append($header)
+  //   //     $('body').append($container)
 
-      // })
-  })
+  //     // })
+  // })
 
 
   $('body').on('click', '#new-playlist', function(event) {
@@ -171,14 +171,14 @@ $(document).ready(function() {
       .done(function(response) {
         $('.container').remove()
         // $('header').remove()
-        // console.log(response)
+
 
         var $container = $(response).filter('.container')
         var $newSong = $(response).find('.coverart').last().find('a')
         $('body').append($container)
-        $('#secret-playlist').append($newSong)
-        console.log($newSong)
+        // $('#secret-playlist').append($newSong)
 
+        init()
       })
   })
 
@@ -241,65 +241,17 @@ getLocation()
   var current;
 
 
-  // function init(){
-  //     current = 0;
-  //     audio = $('audio');
-		// 	var counter = 0
-
-  //     playlist = $('#playlist');
-  //     tracks = playlist.find('span a');
-		// 	tracks.each(function(track) {
-		// 		var src = $(track)
-		// 		console.log(src)
-		// 		console.log(track)
-		// 		localStorage.setItem(counter, src)
-		// 		counter++
-		// 	})
-  //     firstTrackSrc = tracks.first().attr('href')
-  //     source = $('<source>').attr('type', 'audio/mpeg').attr('src', firstTrackSrc)
-  //     audio.append(source)
-  //     len = tracks.length - 1;
-  //     audio[0].volume = .50;
-  //     audio[0].play();
-  //     playlist.find('a').click(function(e){
-  //         e.preventDefault();
-  //         link = $(this);
-  //         current = link.parent().index();
-  //         run(link, audio[0]);
-  //     });
-  //     audio[0].addEventListener('ended',function(e){
-  //         current++;
-  //         if(current === len){
-  //             current = 0;
-  //             link = localStorage.getItem(current)
-  //         }else{
-  //             // link = playlist.find('a')[current + 1];
-		// 					link = localStorage.getItem(current)
-  //         }
-  //         run($(link),audio[0]);
-  //     });
-  // }
-  // function run(link, player){
-  //         player.src = link.attr('href');
-  //         par = link.parent();
-  //         par.addClass('active').siblings().removeClass('active');
-  //         audio[0].load();
-  //         audio[0].play();
-  // }
-
-  // init();
-
-
 init();
 function init(){
     current = 0;
     audio = $('#audio');
     playlist = $('#playlist');
     tracks = playlist.find('.coverart a').clone();
+    $('#secret-playlist').find('a').remove()
     $div = $('footer').find('#secret-playlist')
     $('#secret-playlist').append(tracks)
-    len = tracks.length - 1;
-    audio[0].volume = .10;
+    len = tracks.length;
+    audio[0].volume = .50;
     audio[0].play();
     playlist.find('a').click(function(e){
         e.preventDefault();
@@ -311,14 +263,17 @@ function init(){
         current++;
         if(current == len){
             current = 0;
+            console.log('done')
             link = $div.find('a')[0];
         }else{
             link = $div.find('a')[current];
         }
+        console.log($(link))
         run($(link),audio[0]);
     });
 }
 function run(link, player){
+        console.log(link)
         player.src = link.attr('href');
         par = link.parent();
         par.addClass('active').siblings().removeClass('active');
