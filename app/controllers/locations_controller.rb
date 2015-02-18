@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
 
 	def create
 		@playlist = Playlist.find(params[:playlist_id])
-		@location = @playlist.locations.new(name: params[:location])
+		@location = @playlist.locations.new(name: params[:location][:name], address: params[:location][:address])
 		@tagging = Tagging.create(user: current_user, playlist: @playlist, location: @location)
 
 		if @location.save
@@ -17,9 +17,10 @@ class LocationsController < ApplicationController
 		end
 	end
 
-	# def show
-	# 	@location = @playlist.locations.find(params[:id])
-	# end
+	def show
+		@playlist = Playlist.find(params[:playlist_id])
+		@location = @playlist.locations.find(params[:id])
+	end
 
 
 end

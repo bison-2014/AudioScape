@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150218162130) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

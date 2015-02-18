@@ -8,6 +8,12 @@
 
 </div>
 
+<div class="playlist_locations">
+	<% @playlist.taggings.each do |tag| %> 
+		<li><%= link_to tag.location.name, playlist_location_path(tag.playlist, tag.location) %></li>
+	<% end %>
+</div>
+
 <br />
 <div class="playlist">
 
