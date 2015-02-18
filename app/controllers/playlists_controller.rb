@@ -9,7 +9,7 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.new
     render 'new', layout: false
   end
-
+ 
   def show
     @playlist = Playlist.find(params[:id])
     @client = Grooveshark::Client.new({session: session[:groove_session]})
