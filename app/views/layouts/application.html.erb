@@ -5,15 +5,22 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+
+
   <script src="//cdn.jsdelivr.net/rsvp/3.0.6/rsvp.min.js"></script>
   <!-- Firebase -->
   <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
 
   <!-- GeoFire -->
   <script src="https://cdn.firebase.com/libs/geofire/3.2.1/geofire.min.js"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag 'application'%>
+
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -29,11 +36,13 @@
     <%= yield %>
   </div>
 
+<% if current_user %>
 
   <footer>
 		<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg"></audio>
+    <div id='secret-playlist' style='display:none'></div>
   </footer>
-
+<% end %>
 
 
 

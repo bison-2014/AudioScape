@@ -7,12 +7,13 @@
 
 
 	<br />
+
 </div>
+
+
 <div class="playlist">
 
-	<% if @playlist.user == current_user %>
-	<a href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
-	<% end %>
+
 
 
 	<ul id="playlist">
@@ -24,7 +25,9 @@
   <%= link_to 'Delete Playlist', playlist_path(@playlist),
           method: :delete,
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
-  <a class="button tiny" href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% if @playlist.user == current_user %>
+    <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% end %>
 </div>
 
 

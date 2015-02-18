@@ -6,9 +6,15 @@ class VisitorsController < ApplicationController
     session[:groove_session] = client.session
     @user = current_user
     @playlists = @user.playlists.last(5)
+    # render 'index', layout: false
+  end
+
+  def home
+
   end
 
 
 
 end
+
 

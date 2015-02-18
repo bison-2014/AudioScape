@@ -6,6 +6,8 @@ class SongsController < ApplicationController
 
   def new
 
+    render 'new', layout: false
+
   end
 
   def show
@@ -44,7 +46,7 @@ class SongsController < ApplicationController
 
     client = Grooveshark::Client.new({session: session[:groove_session]})
     @artist_search_results = client.search_songs(params[:songs][:title])
-
+    render 'search', layout: false
   end
 
 end
