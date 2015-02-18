@@ -7,15 +7,8 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
-<<<<<<< HEAD
 
     render 'new', layout: false
-<<<<<<< HEAD
-=======
-
-=======
->>>>>>> implementing tag a location feature
->>>>>>> implementing tag a location feature
   end
 
   def show
@@ -25,11 +18,6 @@ class PlaylistsController < ApplicationController
     unless @picture
       @picture = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
     end
-
-
-
-
-
   end
 
   def create
