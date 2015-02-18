@@ -7,8 +7,15 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+<<<<<<< HEAD
 
     render 'new', layout: false
+<<<<<<< HEAD
+=======
+
+=======
+>>>>>>> implementing tag a location feature
+>>>>>>> implementing tag a location feature
   end
 
   def show
