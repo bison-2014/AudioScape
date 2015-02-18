@@ -204,7 +204,7 @@ function init(){
     len = tracks.length;
     audio[0].volume = .50;
     audio[0].play();
-    playlist.find('a').click(function(e){
+    $('body').on('click', '.song', function(e){
         e.preventDefault();
         link = $(this);
         current = link.parent().index();
