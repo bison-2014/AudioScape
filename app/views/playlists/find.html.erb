@@ -11,7 +11,7 @@
       <%= u.username %></br>
         <div class="art_pic">
           <img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
-          <%= link_to "#{@playlist.title}", playlist_path(@playlist.id) %>
+          <%= link_to "#{@playlist.title}", playlist_path(@playlist.id), :class => 'playlists-around' %>
         </div>
       <% end %>
   <% end %>
