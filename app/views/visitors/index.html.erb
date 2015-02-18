@@ -11,7 +11,7 @@
     <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'button small', :id => 'find-playlist' %>
     <%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small', :id => 'new-playlist'  %>
   </div>
-   <div class="random_playlist">
+   <div class="random_playlist" id='playlist'>
     <p>Here is a sampling of songs from playlists around you</p>
       <ul>
       <% find_random_local_songs.each do |song| %>
