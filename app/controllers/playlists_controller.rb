@@ -7,14 +7,6 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
-<<<<<<< HEAD
-=======
-
-
-    render 'new', layout: false
-
-  end
->>>>>>> we now have a fully persistent player
 
     render 'new', layout: false
   end
