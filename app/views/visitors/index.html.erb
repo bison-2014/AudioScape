@@ -14,10 +14,13 @@
    <div class="random_playlist" id='playlist'>
     <p>Here is a sampling of songs from playlists around you</p>
       <ul>
-      <% find_random_local_songs.each do |song| %>
-      <%= render partial: 'songs/mini_groove_song_card', locals: {playlist: song.playlist, track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart} %>
-      <% end %>
-
+        <% if find_random_local_songs.class.name == "Array" %>
+          <% find_random_local_songs.each do |song| %>
+            <%= render partial: 'songs/mini_groove_song_card', locals: {playlist: song.playlist, track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart} %>
+          <% end %>
+        <% else %>
+          <%= find_random_local_songs %>
+        <% end %>
   </div>
 </div>
 
