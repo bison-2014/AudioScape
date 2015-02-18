@@ -4,7 +4,6 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.string :address
 
-
       t.timestamps null: false
     end
   end
