@@ -7,7 +7,6 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
-
     render 'new', layout: false
   end
 
