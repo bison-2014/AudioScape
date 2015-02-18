@@ -184,7 +184,6 @@ $(document).ready(function() {
 
 
 
-
 getLocation()
 
   var audio;
