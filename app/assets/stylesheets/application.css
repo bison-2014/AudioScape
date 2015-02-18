@@ -44,7 +44,7 @@ footer {
 		bottom:0;
 		left:0;
     background-color: white;
-
+    z-index: 1;
 }
 
 .button {
@@ -54,12 +54,6 @@ background-color: #1F2E4D !important;
 .result {
   text-align: center;
 }
-
-
-
-
-
-
 
 
 

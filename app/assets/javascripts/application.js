@@ -40,32 +40,6 @@ $(document).ready(function() {
       })
   })
 
-  // $('body').on('click', '#signin', function(event) {
-  //   event.preventDefault()
-
-  //   var myUrl = $(this).attr('href')
-  //   $.ajax({type: 'get', url: myUrl})
-  //     .done(function(response) {
-  //       $('.container').remove()
-
-  //       $('body').append($('<div>').addClass('container row').append(response))
-
-  //     })
-  // })
-
-  // $('body').on('click', '#signup', function(event) {
-  //   event.preventDefault()
-
-  //   var myUrl = $(this).attr('href')
-  //   $.ajax({type: 'get', url: myUrl})
-  //     .done(function(response) {
-  //       $('.container').remove()
-
-  //       $('body').append($('<div>').addClass('container row').append(response))
-
-  //     })
-  // })
-
   $('body').on('click', '#user', function(event) {
     event.preventDefault()
 
@@ -73,47 +47,14 @@ $(document).ready(function() {
     $.ajax({type: 'get', url: myUrl})
       .done(function(response) {
         $('.container').remove()
+        $('header').remove()
+        var $header = $(response).filter('header')
+        var $container = $(response).filter('.container')
 
-        $('body').append($('<div>').addClass('container row').append(response))
-
+        $('body').append($header)
+        $('body').append($container)
       })
   })
-
-  // $('body').on('click', '#signout', function(event) {
-  //   event.preventDefault()
-
-  //   var myUrl = $(this).attr('href')
-  //   $.ajax({type: 'delete', url: myUrl})
-  //     .done(function(response) {
-  //       $('.container').remove()
-  //       $('footer').remove()
-  //       $('body').append($('<div>').addClass('container row').append(response))
-
-  //     })
-  // })
-
-  // $('body').on('submit', '#new_user', function(event) {
-  //   // event.preventDefault()
-  //   $('body').append($('<footer>').append($('<audio>').attr('id', 'audio').attr('preload', 'auto').attr('tabindex', '0').attr('controls', '').attr('type', 'audio/mpeg')))
-  //   // var myUrl = $(this).attr('action')
-  //   // $.ajax({type: 'post', url: myUrl, data: $(this).serialize()})
-  //   //   .done(function(response) {
-  //   //     $('header').remove()
-  //   //     $('.container').remove()
-  //   //     // var $ul = $('<ul>').addClass('button-group even-3')
-  //   //     // $ul.append($('<li>').append($('<a>').attr('id', 'home').attr('class', 'button').attr('href', '/').text('Home')))
-  //   //     // $ul.append($('<li>').append($('<a>').attr().attr('id', 'user').attr('class', 'button').attr('href', '/users/edit').text('User')))
-  //   //     // $ul.append($('<li>').append($('<a>').attr().attr('id', 'signout').attr('class', 'button').attr('href', '/users/sign_out').attr('rel', 'nofollow').attr('data-method', 'delete').text('Exit')))
-  //   //     // $('body').append($('<header>').append("<%= escape_javascript(render 'layouts/navigation').html_safe %>"))
-
-  //   //     // $('body').append($('<header>').append($ul))
-  //   //     var $header = $(response).filter('header')
-  //   //     var $container = $(response).filter('.container')
-  //   //     $('body').append($header)
-  //   //     $('body').append($container)
-
-  //     // })
-  // })
 
 
   $('body').on('click', '#new-playlist', function(event) {
@@ -171,13 +112,12 @@ $(document).ready(function() {
     $.ajax({type: 'post', beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}, url: myUrl, data: params})
       .done(function(response) {
         $('.container').remove()
-        // $('header').remove()
+
 
 
         var $container = $(response).filter('.container')
         var $newSong = $(response).find('.coverart').last().find('a')
         $('body').append($container)
-        // $('#secret-playlist').append($newSong)
 
         init()
       })
@@ -209,26 +149,8 @@ $(document).ready(function() {
 
 
   function checkGeoFire(position) {
-    // firebaseRef.push(userId)
     $.ajax({type: 'patch', url: '/users/'+userId+'', data: { user: {latitude: position.coords.latitude, longitude: position.coords.longitude}}})
-    // geoFire.get(userId).then(function(location) {
-    //   if (location === null) {
-    //     geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
-    //     firebaseRef.child(userId).update({'datetime': currentdate});
-    //     console.log('No key in database so we set the initial position')
-    //   }
-    //   else {
-    //     if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
-    //       geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
-    //       console.log('checked the key and we moved enough to update database')
-    //     }
-    //     }
-    //   }, function(error) {
-    //     console.log("Error: " + error);
-    //   }
-    // );
-    // firebaseRef.child(userId).update({'datetime': currentdate});
-  }
+    }
 
 
 
