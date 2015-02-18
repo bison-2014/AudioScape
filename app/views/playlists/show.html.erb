@@ -30,6 +30,7 @@
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
 
   <%= link_to "Tag a location", new_playlist_location_path(@playlist), :class => "button tiny" %>
+
   <% if @playlist.user == current_user %>
     <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
   <% end %>
