@@ -9,11 +9,11 @@
 
 	<div class='song-cards'>
 		<% unless song.artwork == '' %>
-			<img class="searchart" src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
+			<img class="th searchart" src="http://images.gs-cdn.net/static/albums/<%= song.artwork %>" />
 		<% else %>
-			<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+			<img class="th searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 		<%end%>
-		<p>&nbsp&nbsp<%= song.name %> - <%= song.artist %></p>
+		<p>&nbsp&nbsp<%= truncate(song.name, :length => 15)  %> - <%= truncate(song.artist, :length => 10) %></p>
 		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button tiny' %>
 	</div>
 <%end%>
