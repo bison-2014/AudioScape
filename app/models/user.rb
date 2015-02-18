@@ -10,15 +10,11 @@ class User < ActiveRecord::Base
   has_many :taggings
   has_many :locations, through: :taggings
 
-
-  has_many :taggings
-  has_many :locations, through: :taggings
-
   validates :username, uniqueness: true
 
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
-  
+
   # extract the information that is available after the authentication.
 	def self.from_omniauth(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
