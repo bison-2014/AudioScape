@@ -17,11 +17,11 @@
           <p class="result"><%= find_random_local_songs %><p>
         <% end %>
   </div>
-  <div class="links">
+  <ui class="button-group even-2">
 
-    <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'button small', :id => 'find-playlist' %>
-    <%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small', :id => 'new-playlist'  %>
-  </div>
+    <li><%= link_to "View Nearby Playlists", playlists_find_path, :class => 'button small', :id => 'find-playlist' %></li>
+    <li><%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small', :id => 'new-playlist'  %></li>
+  </ul>
 </div>
 
 
