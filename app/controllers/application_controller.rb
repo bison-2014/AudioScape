@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
  def current_users_around
 
 
-
     # base_uri = 'https://blinding-fire-43.firebaseio.com/'
     # firebase = Firebase::Client.new(base_uri)
     @users_around = current_user.nearbys(10)
