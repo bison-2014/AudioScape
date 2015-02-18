@@ -23,14 +23,6 @@ class ApplicationController < ActionController::Base
     #     current_user_point = current_user_body['l']
     #     user_time = (body['datetime'] || 1.second.ago)
     #     if 1.hour.ago < user_time
-
-    #       if distance(current_user_point[0], current_user_point[1], this_user_point[0], this_user_point[1]) < 16
-    #         current_users_around << u unless u == current_user
-    #       end
-    #     end
-    #   end
-    # end
-    # current_users_around
   end
 
   helper_method :current_users_around
