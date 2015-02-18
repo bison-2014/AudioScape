@@ -17,7 +17,6 @@ class LocationsController < ApplicationController
 		end
 	end
 
-
 	def show
 		@playlist = Playlist.find(params[:playlist_id])
 		@location = @playlist.locations.find(params[:id])
