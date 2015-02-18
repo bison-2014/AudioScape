@@ -18,7 +18,9 @@ module ApplicationHelper
           end
         end
       end
+      return random_songs
     end
-    return random_songs
+
   end
+
 end

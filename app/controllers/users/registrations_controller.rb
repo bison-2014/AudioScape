@@ -13,17 +13,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    location = request.location
+    @user.latitude = location.latitude
+    @user.longitude = location.longitude
+    @user.save
+  end
 
   # GET /resource/edit
 
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+
+    @user = current_user
+    @user.latitude = params[:user][:latitude]
+    @user.longitude = params[:user][:longitude]
+    @user.save
+  end
 
   # DELETE /resource
   # def destroy
@@ -53,7 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :latitude, :longitude)
   end
 
 

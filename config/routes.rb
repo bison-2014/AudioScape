@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   root to: 'visitors#index'
+
   get '/playlists/:playlist_id/songs/search', to: 'songs#search'
 
   get '/playlists/find', to: 'playlists#find'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/users/:id", to: 'users/registrations#show'
+    patch '/users/:id', to: 'users/registrations#update'
   end
 
 

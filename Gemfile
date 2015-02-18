@@ -40,7 +40,7 @@ gem 'kaminari'
 
 gem 'firebase'
 gem 'foundation-rails'
-
+gem 'geocoder'
 
 
 

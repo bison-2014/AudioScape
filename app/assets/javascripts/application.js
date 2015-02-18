@@ -35,6 +35,7 @@ $(document).ready(function() {
         console.log($header)
         $('body').append($header)
         $('body').append($container)
+        init()
 
       })
   })
@@ -187,8 +188,6 @@ $(document).ready(function() {
   var firebaseRef = new Firebase("https://blinding-fire-43.firebaseio.com/");
   var geo_options = {
   enableHighAccuracy: true,
-  maximumAge        : 30000,
-  timeout           : 27000
   };
 
   var currentdate = new Date();
@@ -211,24 +210,24 @@ $(document).ready(function() {
 
   function checkGeoFire(position) {
     // firebaseRef.push(userId)
-
-    geoFire.get(userId).then(function(location) {
-      if (location === null) {
-        geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
-        firebaseRef.child(userId).update({'datetime': currentdate});
-        console.log('No key in database so we set the initial position')
-      }
-      else {
-        if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
-          geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
-          console.log('checked the key and we moved enough to update database')
-        }
-        }
-      }, function(error) {
-        console.log("Error: " + error);
-      }
-    );
-    firebaseRef.child(userId).update({'datetime': currentdate});
+    $.ajax({type: 'patch', url: '/users/'+userId+'', data: { user: {latitude: position.coords.latitude, longitude: position.coords.longitude}}})
+    // geoFire.get(userId).then(function(location) {
+    //   if (location === null) {
+    //     geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
+    //     firebaseRef.child(userId).update({'datetime': currentdate});
+    //     console.log('No key in database so we set the initial position')
+    //   }
+    //   else {
+    //     if (GeoFire.distance([position.coords.latitude, position.coords.longitude], location) > minUpdateUserDistance ) {
+    //       geoFire.set(userId, [position.coords.latitude, position.coords.longitude]);
+    //       console.log('checked the key and we moved enough to update database')
+    //     }
+    //     }
+    //   }, function(error) {
+    //     console.log("Error: " + error);
+    //   }
+    // );
+    // firebaseRef.child(userId).update({'datetime': currentdate});
   }
 
 
