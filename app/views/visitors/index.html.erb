@@ -10,24 +10,11 @@
     <%= link_to "View Nearby Playlists", playlists_find_path, :class => 'button small' %>
     <%= link_to "Create A New Playlist", new_playlist_path, :class => 'button small'  %>
   </div>
-
    <div class="random_playlist">
     <p>Here is a sampling of songs from playlists around you</p>
-      <% if current_users_around.empty? %>
-        <p>No users currently. Please try again later</p>
-      <% else %>
-        <% current_users_around.each do |u| %></br>
-          <% if u.playlists %>
-            <% playlist = u.playlists.sample %>
-          <% if u.playlists.sample %>
-            <% song = playlist.songs.sample %>
-            <% current_user.playlists.create(song) %>
-
-          <li><%= link_to song.url, playlist_song_path(song) %></li>
-        <% end %>
+      <ul>
+      <% find_random_local_songs.each do |song| %>
+      <%= render partial: 'songs/mini_groove_song_card', locals: {playlist: song.playlist, track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart} %>
       <% end %>
-    <% end %>
-    <% end %>
   </div>
-
 </div>
