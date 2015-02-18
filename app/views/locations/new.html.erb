@@ -1,0 +1,7 @@
+<h2>Tag a location</h2>
+<%= form_for [@playlist, @location] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	
+	<%= f.submit %>
+	<% end %>

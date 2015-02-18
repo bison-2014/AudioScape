@@ -9,11 +9,8 @@ class User < ActiveRecord::Base
   has_many :songs, through: :playlists
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
-  # geocoded_by :address, :latitude  => :latitude, :longitude => :longitude
-  # after_validation :geocode
-  # reverse_geocoded_by :latitude, :longitude
-  # after_validation :reverse_geocode
-  # geocoded_by :address, :latitude  => :lat, :longitude => :lon
+  has_many :taggings
+  has_many :locations, through: :taggings
 
   # extract the information that is available after the authentication.
 	def self.from_omniauth(auth)

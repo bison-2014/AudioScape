@@ -8,11 +8,14 @@
 
 </div>
 
+<div class="playlist_locations">
+	<% @playlist.taggings.each do |tag| %> 
+		<%= tag.location.name %>
+	<% end %>
+</div>
 
+<br />
 <div class="playlist">
-
-
-
 
 	<div id="playlist">
 		<% @playlist.songs.each do |song| %>
@@ -25,7 +28,11 @@
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
   <% if @playlist.user == current_user %></li>
     <li><a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a></li></ul>
+
   <% end %>
+
+
+  <%= link_to "Tag a location", new_playlist_location_path(@playlist), :class => "button tiny" %>
 
 </div>
 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/playlists/find', to: 'playlists#find'
 
   resources :playlists do
+    resources :locations
     resources :songs
   end
 
