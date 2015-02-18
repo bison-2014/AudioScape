@@ -9,6 +9,10 @@ class VisitorsController < ApplicationController
     # render 'index', layout: false
   end
 
+  def home
+
+  end
+
 
 
 
