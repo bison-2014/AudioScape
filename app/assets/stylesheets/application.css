@@ -55,5 +55,7 @@ background-color: #1F2E4D !important;
   text-align: center;
 }
 
-
+.container {
+  padding-bottom: 100px;
+}
 
