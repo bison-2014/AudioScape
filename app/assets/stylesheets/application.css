@@ -37,10 +37,13 @@
 }
 
 
-
 footer {
 		width:100%;
 		position:fixed;
 		bottom:0;
 		left:0;
+}
+
+.button {
+background-color: #1F2E4D;
 }
