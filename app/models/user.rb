@@ -23,8 +23,6 @@ class User < ActiveRecord::Base
   has_many :taggings
   has_many :locations, through: :taggings
 
-
-
   # extract the information that is available after the authentication.
 	def self.from_omniauth(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
