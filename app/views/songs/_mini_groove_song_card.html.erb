@@ -1,5 +1,4 @@
 <div class="songcard">
-	<span>
 	<div class="coverart">
 		<a href=<%= url %> class='song'>
 		<% unless coverart == '' %>
@@ -8,8 +7,8 @@
 		</a>
 	</div>
 	<div class="songinfo">
-		<%= artist %> - <%= title %>
+		<div class="title"><%= title.truncate(25) %></div>
+		<div class="artist"><%= artist.truncate(20) %></div>
 	</div>
-	<%= button_to "Delete Song", [@playlist, track], method: :delete %>
-	</span>
+	<%= link_to "@", [@playlist, track], method: :delete, :class => "icon" %>
 </div>
