@@ -25,7 +25,7 @@
      <h4>My Playlists:</h4>
     <% @playlists.each do |playlist| %>
       <img class="searchart" src="<%= playlist.art_url %>"/>
-     <span><%= link_to playlist.title, playlist_path(playlist) %></span></br>
+     <span><%= link_to playlist.title, playlist_path(playlist), :class => 'my-playlists' %></span></br>
     <% end %>
   </div>
 

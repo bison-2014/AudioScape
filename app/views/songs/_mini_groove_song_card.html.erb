@@ -20,11 +20,11 @@
 					<%= link_to '', [@playlist, track], method: :delete, :class => "icon" %>
 				</i>
 			<% elsif method == :add %>
-				<%= link_to playlist_songs_path(playlist_id: @playlist.id, song_name: title, song_artist: artist, song_id: track.id, coverart: coverart), method: :post, :class => 'add-song' do %>
+				<%= link_to playlist_songs_path(@playlist, song_name: title, song_artist: artist, song_id: track.id, coverart: coverart), :class => 'add-song' do %>
 				  <i class="fa fa-plus"></i>
 					<% end %>
 			<% end %>
 		</div>
 </div>
 
- 
+
