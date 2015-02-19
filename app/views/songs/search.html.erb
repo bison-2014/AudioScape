@@ -14,6 +14,6 @@
 
 
 <% @artist_search_results.each do |song| %>
-	<%= render partial: 'songs/mini_groove_song_card', locals: { title: song.name, artist: song.artist, coverart: "http://images.gs-cdn.net/static/albums/<%song.artwork%>", track: song, method: :add} %>
+	<%= render partial: 'songs/mini_groove_song_card', locals: { title: song.name, artist: song.artist, coverart: "http://images.gs-cdn.net/static/albums/<%= song.artwork%>", track: song, method: :add} %>
 
 <%end%>
