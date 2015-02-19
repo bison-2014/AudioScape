@@ -1,10 +1,6 @@
 <div class="now_playing">
 
-	<p class="welcome"><%= @playlist.title %></p>
-
-
-	<img src="<%= @picture %>"/>
-
+	<h1><%= @playlist.title %></h1>
 
 </div>
 
@@ -13,6 +9,19 @@
 		<li><%= link_to tag.location.name, playlist_location_path(tag.playlist, tag.location) %></li>
 	<% end %>
 </div>
+
+<div class="button-group even-2 link_tabs">
+  <%= link_to 'Delete Playlist', playlist_path(@playlist),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, :class => "button tiny"%>
+
+  <%= link_to "Tag a location", new_playlist_location_path(@playlist), :class => "button tiny" %>
+
+
+  <% if @playlist.user == current_user %>
+    <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% end %>
+ </div>
 
 
 <br />
@@ -25,17 +34,5 @@
 			<%= render partial: 'songs/mini_groove_song_card', locals: {track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart}%>
 		<% end %>
 	</div>
-  <ul class="button-group even-2">
-  <li><%= link_to 'Delete Playlist', playlist_path(@playlist),
-          method: :delete,
-          data: { confirm: "Are you sure?" }, :class => "button tiny"%>
-
-  <%= link_to "Tag a location", new_playlist_location_path(@playlist), :class => "button tiny" %>
-
-
-  <% if @playlist.user == current_user %>
-    <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
-  <% end %>
-
 </div>
 
