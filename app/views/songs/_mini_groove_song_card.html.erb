@@ -6,7 +6,7 @@
 			<% unless coverart == '' %>
 				<i class="fa fa-play"></i><img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
 			<% else %>
-				<img class="fa fa-play"></i><img src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+				<img class="fa fa-play"></i><img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 			<%end%>
 		</a>
 	</div>
@@ -20,10 +20,11 @@
 					<%= link_to '', [@playlist, track], method: :delete, :class => "icon" %>
 				</i>
 			<% elsif method == :add %>
-					<a href="<%= playlist_songs_path(@playlist) %>" class="add-song">
-						<i class="fa fa-plus">
-					</a>
-				</i>
+				<%= link_to playlist_songs_path(playlist_id: @playlist.id, song_name: title, song_artist: artist, song_id: track.id, coverart: coverart), method: :post, :class => 'add-song' do %>
+				  <i class="fa fa-plus"></i>
+					<% end %>
 			<% end %>
 		</div>
 </div>
+
+ 

@@ -15,7 +15,7 @@
 
 <% @artist_search_results.each do |song| %>
 
-<%= render partial: 'songs/mini_groove_song_card', locals: { title: song.name, artist: song.artist, coverart: song.artwork, method: :add} %>
+<%= render partial: 'songs/mini_groove_song_card', locals: { title: song.name, artist: song.artist, coverart: song.artwork, track: song, method: :add} %>
 
 <!-- 
 		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button tiny add-song' %>

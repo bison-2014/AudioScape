@@ -45,7 +45,7 @@ class SongsController < ApplicationController
   def search
     @playlist = Playlist.find(params[:playlist_id])
     client = Grooveshark::Client.new({session: session[:groove_session]})
-    @artist_search_results = client.search_songs(params[:songs][:title])
+    @artist_search_results = client.search_songs(params[:songs][:title]).first(20)
     render 'search', layout: false
   end
 

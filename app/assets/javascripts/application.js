@@ -107,9 +107,9 @@ $(document).ready(function() {
   $('body').on('click', '.add-song', function(event) {
     event.preventDefault()
 
-     var myUrl = $(this).parent().attr('action').replace(/\?(.+)/, '')
-     var params = $(this).parent().attr('action').match(/\?(.+)/)[1]
-    $.ajax({type: 'post', beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}, url: myUrl, data: params})
+     var myUrl = $(this).attr('href').replace(/\?(.+)/, '')
+     var params = $(this).attr('href').match(/\?(.+)/)[1]
+    $.ajax({type: 'post', url: myUrl, data: params})
       .done(function(response) {
         $('.container').remove()
 
