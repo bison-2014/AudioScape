@@ -17,14 +17,92 @@
 
  */
 
-.welcome {
+ @import url(http://fonts.googleapis.com/css?family=Rock+Salt);
+ @import url(http://fonts.googleapis.com/css?family=Satisfy);
+
+.random_playlist {
   text-align: center;
-  text-decoration: underline;
+  border: .2em dashed red;
+  margin-top: 2em;
+  color: grey;
+}
+
+.link_tabs {
+  /*margin: 0 auto;*/
+  margin-top: 2em;
+  text-align: center; 
+}
+
+.welcome h1 {
+  margin: .3em .8em 0 .8em;
+  padding-top: .3em;
+  text-align: center;
+  border: .2em dashed grey;
+  font-family: 'Rock Salt', cursive;
+  color: red;
+
+}
+
+.result {
+  color: red;
+  font-family: 'Satisfy', cursive;
+  text-align: center;
+}
+
+.welcome {
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  font-size: 1.5em;
+
+}
+
+.welcome_nearby {
+    margin: .3em .8em 0 .8em;
+  padding-top: .3em;
+  text-align: center;
+  border: .2em dashed grey;
+  font-family: 'Rock Salt', cursive;
+  color: red;
+  font-size: 1.5em;
+
+}
+
+.random {
+  margin-top: 2em;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  font-size: .9em;
+  font-weight: bold;
+  margin-left: .2em;
+}
+
+.user_playlists a {
+  color: red;
+}
+
+.something h4 {
+  margin-top: 2em;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  font-size: .9em;
+  font-weight: bold;
+  color: grey;
 }
 
 .user_playlists {
+  margin-top: 1em;
   text-align: center;
-  min-height: 12em;
+  padding-bottom: 1em;
+  /*min-height: 12em;*/
+  border: .2em dashed grey;
+}
+
+.user_playlists span {
+  text-align: center;
+  margin-right: .1em;
+  margin-bottom: .1em;
+  /*margin-left: .1em;*/
+  /*padding-right: .1em;*/
 }
 
 .searchart {
@@ -92,9 +170,21 @@ background-color: #1F2E4D !important;
    height: auto;
 }
 
-.icon {
+.fa-trash-o {
   color: #FF00FF;
   font-size: 24pt;
   float: right;
 }
+
+/*.title h3 {
+  font-size: 2em;
+  font-family: 'Satisfy', cursive;
+  margin-left: .1em;
+
+}
+
+.artist h4 {
+  font-size: .5em;
+  font-family: 'Rock Salt', cursive; ;
+}*/
 

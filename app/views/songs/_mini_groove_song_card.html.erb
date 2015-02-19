@@ -10,5 +10,6 @@
 		<div class="title"><%= title.truncate(25) %></div>
 		<div class="artist"><%= artist.truncate(20) %></div>
 	</div>
-	<%= link_to "@", [@playlist, track], method: :delete, :class => "icon" %>
+		<div class="icon"><i class="fa fa-trash-o"><%= link_to '', [@playlist, track], method: :delete, :class => "icon" %></i>
+		</div>
 </div>
