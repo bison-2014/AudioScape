@@ -4,7 +4,9 @@
 	<div class="coverart">
 		<a href=<%= url %> class='song'>
 			<% unless coverart == '' %>
-				<i class="fa fa-play"></i><img src=<%= coverart %> />
+				<i class="fa fa-play"></i><img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
+			<% else %>
+				<img class="fa fa-play"></i><img src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 			<%end%>
 		</a>
 	</div>
