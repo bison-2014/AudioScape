@@ -16,7 +16,7 @@
 
 
  */
-@import url(http://fonts.googleapis.com/css?family=Yellowtail);
+
 .welcome {
   text-align: center;
   text-decoration: underline;
@@ -35,6 +35,7 @@
   float: left;
   padding: .5em;
 }
+
 
 
 footer {
@@ -57,5 +58,56 @@ background-color: #1F2E4D !important;
 
 .container {
   padding-bottom: 100px;
+  width: 100%;
 }
+
+#playlist {
+  width: 100%;
+}
+
+
+.playlist {
+  width: 100%;
+}
+
+.songcard {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 5px;
+}
+
+
+.songinfo {
+   display: inline;
+   margin-top: 10px;
+   float: left;
+ }
+
+
+.coverart {
+   float: left;
+   max-height: 90px;
+   max-width: 90px;
+   width: auto;
+   height: auto;
+}
+
+.icon {
+  color: #FF00FF;
+  font-size: 24pt;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -6,8 +6,6 @@
 	<img src="<%= @picture %>"/>
 
 
-	<br />
-
 </div>
 
 
@@ -16,17 +14,17 @@
 
 
 
-	<ul id="playlist">
+	<div id="playlist">
 		<% @playlist.songs.each do |song| %>
 			<%= render partial: 'songs/mini_groove_song_card', locals: {track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart}%>
 		<% end %>
-	</ul>
-
-  <%= link_to 'Delete Playlist', playlist_path(@playlist),
+	</div>
+  <ul class="button-group even-2">
+  <li><%= link_to 'Delete Playlist', playlist_path(@playlist),
           method: :delete,
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
-  <% if @playlist.user == current_user %>
-    <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% if @playlist.user == current_user %></li>
+    <li><a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a></li></ul>
   <% end %>
 </div>
 
