@@ -5,13 +5,13 @@
 		<a href=<%= url %> class='song'>
 			<% unless coverart == '' %>
 				<% unless @artist_search_results %>
-				<i class="fa fa-play"></i><img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
+				<i class="fa fa-play"></i><img src="<%= coverart %>" />
 				<% else %>
 					<img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
 				<% end %>
 			<% else %>
 				<% unless @artist_search_results %>
-					<i class="fa fa-play"></i><img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+					<i class="fa fa-play"></i><img class="searchart" src="<%= coverart%>" />
 				<% else %>
 					<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
 				<% end %>

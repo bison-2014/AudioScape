@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+  STOCK_IMG = "http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg"
   def index
 
   end
@@ -19,11 +19,11 @@ class SongsController < ApplicationController
   def create
     song = Song.new(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id], coverart: params[:coverart])
 
-    if song.coverart != ''
-      song.coverart = "http://images.gs-cdn.net/static/albums/#{params[:coverart]}"
-      song.save
+    if song.coverart = ''
+      song.coverart = STOCK_IMG
+      song.save  
     else
-      song.coverart = "http://1.bp.blogspot.com/-NFIeRN1TNpU/Ukou19njwHI/AAAAAAAAARQ/iypdhkQVZvI/s200/7313935-heavy-metal-rock-and-roll-devil-horns-hand-sign-with-a-black-leather-studded-bracelet.jpg"
+      song.coverart = "http://images.gs-cdn.net/static/albums/#{params[:coverart]}"
       song.save
     end
 
