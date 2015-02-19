@@ -19,12 +19,12 @@ class SongsController < ApplicationController
   def create
     song = Song.new(title: params[:song_name], artist: params[:song_artist], link: params[:song_id], playlist_id: params[:playlist_id], coverart: params[:coverart])
 
-    if song.coverart = ''
-      song.coverart = STOCK_IMG
-      song.save  
-    else
+    if song.coverart != ''
       song.coverart = "http://images.gs-cdn.net/static/albums/#{params[:coverart]}"
       song.save
+    else
+      song.coverart = STOCK_IMG
+      song.save  
     end
 
     redirect_to "/playlists/#{params[:playlist_id]}/"
