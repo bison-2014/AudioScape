@@ -1,4 +1,4 @@
-<h2>Tag a location</h2>
+<h1>Tag a location</h1>
 <%= form_for [@playlist, @location] do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
@@ -6,5 +6,7 @@
 	<%= f.label :address %>
 	<%= f.text_field :address %>
 	
-	<%= f.submit %>
-	<% end %>
+	<div class="link_tabs">
+		<%= f.submit "Tag", class: "button" %>
+	</div>
+<% end %>

@@ -1,15 +1,27 @@
+<% method = :delete if local_assigns[:method].nil? %>
+<% url = '#' if local_assigns[:url].nil? %>
 <div class="songcard">
 	<div class="coverart">
 		<a href=<%= url %> class='song'>
-		<% unless coverart == '' %>
-			<img src=<%= coverart %> />
-		<%end%>
+			<% unless coverart == '' %>
+				<i class="fa fa-play"></i><img src=<%= coverart %> />
+			<%end%>
 		</a>
 	</div>
 	<div class="songinfo">
 		<div class="title"><%= title.truncate(25) %></div>
 		<div class="artist"><%= artist.truncate(20) %></div>
 	</div>
-		<div class="icon"><i class="fa fa-trash-o"><%= link_to '', [@playlist, track], method: :delete, :class => "icon" %></i>
+		<div class="icon">
+			<% if method == :delete %>
+				<i class="fa fa-trash-o">
+					<%= link_to '', [@playlist, track], method: :delete, :class => "icon" %>
+				</i>
+			<% elsif method == :add %>
+					<a href="<%= playlist_songs_path(@playlist) %>" class="add-song">
+						<i class="fa fa-plus">
+					</a>
+				</i>
+			<% end %>
 		</div>
 </div>

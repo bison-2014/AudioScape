@@ -1,6 +1,11 @@
+<h1>Add a Song</h1>
+
 <div class="new_song">
 	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get', :id => 'search-songs'} do |f| %>
-		<%= f.text_field :title, placeholder: "Search for Music" %><br><br>
-		<%= f.submit "Search", :class => "button" %>
+		<%= f.text_field :title, placeholder: "Search for Music" %>
+			
+		<div class="link_tabs">
+			<%= f.submit "Search", :class => "button" %>
+		</div>
 	<% end %>
 </div>

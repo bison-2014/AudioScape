@@ -1,3 +1,4 @@
+<h1>Create Playlist</h1>
 <% if @playlist %>
   <ul>
   <% @playlist.errors.full_messages.each do |error_msg| %>
@@ -7,7 +8,10 @@
 <% end %>
 
 <%= form_for @playlist do |f| %>
-	Title: <%= f.text_field :title %>
+  <%= f.label :title %>
+	<%= f.text_field :title %>
 
-	<%= f.submit :class => 'button small' %>
+	<div class="link_tabs">
+		<%= f.submit :class => 'button small' %>
+	</div>
 <% end %>
