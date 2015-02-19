@@ -4,10 +4,18 @@
 	<div class="coverart">
 		<a href=<%= url %> class='song'>
 			<% unless coverart == '' %>
+				<% unless @artist_search_results %>
 				<i class="fa fa-play"></i><img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
+				<% else %>
+					<img src="http://images.gs-cdn.net/static/albums/<%= coverart %>" />
+				<% end %>
 			<% else %>
-				<img class="fa fa-play"></i><img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
-			<%end%>
+				<% unless @artist_search_results %>
+					<i class="fa fa-play"></i><img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+				<% else %>
+					<img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
+				<% end %>
+			<% end %>
 		</a>
 	</div>
 	<div class="songinfo">
@@ -16,9 +24,9 @@
 	</div>
 		<div class="icon">
 			<% if method == :delete %>
-				<i class="fa fa-trash-o">
-					<%= link_to '', [@playlist, track], method: :delete, :class => "icon" %>
-				</i>
+					<%= link_to "/playlists/#{@playlist.id}/songs/#{track.id}", method: :delete, :class => "icon" do %>
+						<i class="fa fa-trash-o"></i>
+					<% end %>
 			<% elsif method == :add %>
 				<%= link_to playlist_songs_path(@playlist, song_name: title, song_artist: artist, song_id: track.id, coverart: coverart), :class => 'add-song' do %>
 				  <i class="fa fa-plus"></i>

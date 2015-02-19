@@ -43,7 +43,7 @@
 .link_tabs, .actions {
   /*margin: 0 auto;*/
   margin-top: 2em;
-  text-align: center; 
+  text-align: center;
 }
 
 h1 {
@@ -189,8 +189,16 @@ background-color: #1F2E4D !important;
     padding-top: 52px;
     right: 10px;
 
-    .fa-trash-o { color: lightgray; }
-    .fa-plus { color: red; }
+    .fa-trash-o {
+      color: lightgray;
+      position: relative;
+      bottom: 50px;
+
+       }
+    .fa-plus {
+      color: red;
+      font-size: 30px;
+       }
   }
 }
 
@@ -218,6 +226,7 @@ background-color: #1F2E4D !important;
   color: #FF00FF;
   font-size: 24pt;
   float: right;
+
 }
 
 /*.title h3 {

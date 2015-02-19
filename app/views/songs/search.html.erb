@@ -3,7 +3,7 @@
 
 	<%= form_for :songs, url: {action: 'search'}, html: {method: 'get', :id => 'search-songs'} do |f| %>
 		<%= f.text_field :title, :placeholder => "Find a song" %>
-		
+
 		<div class="link_tabs">
 			<%= f.submit "Search", :class => 'button small' %>
 		</div>
@@ -17,8 +17,4 @@
 
 <%= render partial: 'songs/mini_groove_song_card', locals: { title: song.name, artist: song.artist, coverart: song.artwork, track: song, method: :add} %>
 
-<!-- 
-		<%= button_to 'Add', {action: 'create', song_id: song.id, song_name: song.name, song_artist: song.artist, coverart: song.artwork}, :class => 'button tiny add-song' %>
-
-	</div> -->
 <%end%>
