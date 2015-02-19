@@ -8,13 +8,19 @@
 
 </div>
 
+<div class="playlist_locations">
+	<% @playlist.taggings.each do |tag| %> 
+		<li><%= link_to tag.location.name, playlist_location_path(tag.playlist, tag.location) %></li>
+	<% end %>
+</div>
+
+
+<br />
 
 <div class="playlist">
 
-
-
-
 	<div id="playlist">
+
 		<% @playlist.songs.each do |song| %>
 			<%= render partial: 'songs/mini_groove_song_card', locals: {track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart}%>
 		<% end %>
@@ -23,9 +29,13 @@
   <li><%= link_to 'Delete Playlist', playlist_path(@playlist),
           method: :delete,
           data: { confirm: "Are you sure?" }, :class => "button tiny"%>
-  <% if @playlist.user == current_user %></li>
-    <li><a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a></li></ul>
-  <% end %>
-</div>
 
+  <%= link_to "Tag a location", new_playlist_location_path(@playlist), :class => "button tiny" %>
+
+
+  <% if @playlist.user == current_user %>
+    <a class="button tiny" id='new-song' href="/playlists/<%=@playlist.id%>/songs/new">Add a Song</a>
+  <% end %>
+
+</div>
 
