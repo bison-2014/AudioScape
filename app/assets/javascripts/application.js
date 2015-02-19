@@ -150,6 +150,22 @@ $(document).ready(function() {
         var $container = $(response).filter('.container')
         $('body').append($header)
         $('body').append($container)
+        init()
+      })
+  })
+
+  $('body').on('click', '#tag-location', function(event) {
+    event.preventDefault()
+
+    var myUrl = $(this).attr('href')
+    $.ajax({type: 'get', url: myUrl})
+      .done(function(response) {
+        $('.container').remove()
+        $('header').remove()
+        var $header = $(response).filter('header')
+        var $container = $(response).filter('.container')
+        $('body').append($header)
+        $('body').append($container)
       })
   })
 
