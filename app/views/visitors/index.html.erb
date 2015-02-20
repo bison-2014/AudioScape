@@ -10,7 +10,7 @@
 
   <div class="random_playlist" id='playlist'>
    <p class="random">Random Songs Near Me</p></br>
-      <ul>
+      
         <% if find_random_local_songs.class.name == "Array" %>
           <% find_random_local_songs.each do |song| %>
             <%= render partial: 'songs/mini_groove_song_card', locals: {playlist: song.playlist, track: song, title: song.title, artist: song.artist, url: groove_session.get_song_url_by_id(song.link), coverart: song.coverart} %>

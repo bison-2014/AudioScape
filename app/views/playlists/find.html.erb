@@ -7,7 +7,11 @@
   <% @current_users_around.each do |u| %></br>
     <% @playlist = u.playlists.last %>
       <% if @playlist %>
-      <%= u.username %></br>
+        <% if u == @current_users_around[0] %>
+          <div style='margin-left:90px'><%= u.username %></div>
+        <%else%>
+          <%= u.username %></br>
+        <%end%>
         <div class="art_pic">
           <img class="searchart" src="http://static7.depositphotos.com/1001655/707/v/950/depositphotos_7070089-Woman-with-music-notes.jpg" />
           <%= link_to "#{@playlist.title}", playlist_path(@playlist.id), :class => 'playlists-around' %>
